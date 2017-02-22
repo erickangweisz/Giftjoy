@@ -1,14 +1,14 @@
 import { Component }            from '@angular/core';
 import { Http } from '@angular/http';
-import { Auth }                 from './auth.service';
+import { Auth }                 from '../../services/auth/auth.service';
 import { AuthHttp }             from 'angular2-jwt';
 import { Router }               from '@angular/router';
 import 'rxjs/add/operator/map';
-import { myConfig }             from './auth.config';
+import { myConfig }             from '../../services/auth/auth.config';
 
 @Component({
   selector: 'profile',
-  templateUrl: 'app/profile_edit.template.html'
+  templateUrl: 'app/components/profile/profile_edit.template.html'
 })
 
 export class ProfileEdit {

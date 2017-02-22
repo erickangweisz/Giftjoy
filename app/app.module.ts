@@ -6,10 +6,10 @@ import { HttpModule, JsonpModule } from '@angular/http';
 import { AUTH_PROVIDERS }      from 'angular2-jwt';
 
 import { AppComponent }        from './app.component';
-import { HomeComponent }       from './home.component';
-import { ProfileComponent }    from './profile.component';
-import { ProfileShow }         from './profile_show.component';
-import { ProfileEdit }         from './profile_edit.component';
+import { HomeComponent }       from './components/home/home.component';
+import { ProfileComponent }    from './components/profile/profile.component';
+import { ProfileShow }         from './components/profile/profile_show.component';
+import { ProfileEdit }         from './components/profile/profile_edit.component';
 import { routing,
          appRoutingProviders } from './app.routes';
 

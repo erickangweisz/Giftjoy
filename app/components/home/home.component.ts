@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { Auth }      from './auth.service';
+import { Auth }      from '../../services/auth/auth.service';
 
 @Component({
   selector: 'home',
-  templateUrl: 'app/home.template.html'
+  templateUrl: './app/components/home/home.template.html'
 })
 
 export class HomeComponent {

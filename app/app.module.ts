@@ -10,6 +10,9 @@ import { HomeComponent }       from './components/home/home.component';
 import { ProfileComponent }    from './components/profile/profile.component';
 import { ProfileShow }         from './components/profile/profile_show.component';
 import { ProfileEdit }         from './components/profile/profile_edit.component';
+
+import { ProductListComponent } from './components/product-list/product-list.component';
+
 import { routing,
          appRoutingProviders } from './app.routes';
 
@@ -19,7 +22,8 @@ import { routing,
         HomeComponent,
         ProfileComponent,
         ProfileShow,
-        ProfileEdit
+        ProfileEdit,
+        ProductListComponent
     ],
     providers:    [
         appRoutingProviders,

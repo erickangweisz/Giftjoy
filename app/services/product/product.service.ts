@@ -14,4 +14,5 @@ export class ProductService {
         return this._http.get('http://localhost/api-rest/gitjoyy-api.php/products')
                             .map(res => res.json());
     }
+
 }

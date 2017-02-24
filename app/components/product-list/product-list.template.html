@@ -5,7 +5,7 @@
             <h4>{{product.title}}</h4>
             <p>{{product.direction}}</p>
             <p>
-                <a href="">view</a>
+                <a [routerLink]="['/product', product.id]">view</a>
                 <a href="">edit</a>
                 <a href="">delete</a>
             </p>

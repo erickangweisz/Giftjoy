@@ -4,15 +4,16 @@ import { Product } from '../../model/Product';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
-  selector: 'product-detail',
-  templateUrl: './app/components/product-detail/product-detail.template.html',
+  selector: 'product-upload',
+  templateUrl: './app/components/product-upload/product-upload.template.html',
   providers: [ ProductService ]
 })
 
-export class ProductDetailComponent implements OnInit {
+export class ProductUploadComponent implements OnInit {
 
     public id: string;
-    public product: Product[];
+    //public product: Product[];
+    public product: Product;
     public status:string;
     public errorMessage:any;
 
@@ -22,8 +23,38 @@ export class ProductDetailComponent implements OnInit {
         private productService: ProductService
     ) {}
 
+    onsubmit() {
+            this.productService.addProduct(this.product)
+                .subscribe(
+                    response => {
+                        this.status = response.status;
+                        if (status !== "success") {
+                            //alert ("server ERROR");
+                        }
+                    },
+                    error => {
+                        this.errorMessage = <any>error;
+                        if (this.errorMessage !== null) {
+                            console.log(this.errorMessage);
+                            alert("request error");
+                        }
+                    }
+                );
+                this.router.navigate(['']);
+    }
+
     ngOnInit() {
-        this.getProduct();
+        //this.getProduct();
+        this.product = new Product(
+            0, 
+            "",
+            "",
+            "",
+            "",
+            ""
+        );
+
+        console.log("component product-upload success");
     }
 
     getProduct() {
@@ -48,5 +79,4 @@ export class ProductDetailComponent implements OnInit {
                 }
             });
     }
-
 }

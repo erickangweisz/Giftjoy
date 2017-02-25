@@ -13,6 +13,7 @@ import { ProfileEdit }         from './components/profile/profile_edit.component
 
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { ProductUploadComponent } from './components/product-upload/product-upload.component';
 
 import { routing,
          appRoutingProviders } from './app.routes';
@@ -25,7 +26,8 @@ import { routing,
         ProfileShow,
         ProfileEdit,
         ProductListComponent,
-        ProductDetailComponent
+        ProductDetailComponent,
+        ProductUploadComponent
     ],
     providers:    [
         appRoutingProviders,

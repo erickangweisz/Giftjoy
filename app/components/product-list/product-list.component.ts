@@ -27,7 +27,6 @@ export class ProductListComponent implements OnInit {
                                     this.products = result.data; 
                                     this.status = result.status;
                                     console.log('product-list success');
-                                    console.log(this.products);
 
                                     if (this.status !== "success") {
                                         alert("server error");

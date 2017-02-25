@@ -4,6 +4,7 @@
             <a class="navbar-brand" href="#">gitjoyy</a>
             <button [routerLink]="['']">Home</button>
             <button [routerLink]="['/profile']" *ngIf="auth.authenticated()">Profile</button>
+            <button [routerLink]="['/product-upload']" *ngIf="auth.authenticated()">upload your gift</button>
             <button (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</button>
             <button (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</button>
         </div>

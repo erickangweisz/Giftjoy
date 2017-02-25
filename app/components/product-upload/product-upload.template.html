@@ -1,0 +1,32 @@
+<div class="container">
+    <h2>upload your gift</h2>
+
+    <form (ngSubmit)="onsubmit()">
+        <div class="form-group">
+            <label for="title">title</label>
+            <input type="text" required [(ngModel)]="product.title" name="title">
+        </div>
+
+        <div class=" form-group">
+            <label for="description ">description</label>
+            <input type="text " required [(ngModel)]="product.description" name="description">
+        </div>
+
+        <div class="form-group">
+            <label for="direction ">direction</label>
+            <input type="text " required [(ngModel)]="product.direction" name="direction">
+        </div>
+
+        <div class="form-group">
+            <label for="category ">category</label>
+            <select required [(ngModel)]="product.category" name="category">
+                <option value="electronics ">electronics</option>
+                <option value="furniture ">furniture</option>
+                <option value="clothes ">clothes</option>
+            </select>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+
+</div>

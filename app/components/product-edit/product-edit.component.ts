@@ -14,7 +14,7 @@ export class ProductEditComponent implements OnInit {
     public _id: string;
     public _title: string;
     public _description: string;
-    public _direction: string;
+    public _location: string;
     public _image: string;
     public _category: string;
 
@@ -59,6 +59,7 @@ export class ProductEditComponent implements OnInit {
             "",
             "",
             "",
+            "",
             ""
         );
         this.getProduct();
@@ -79,9 +80,10 @@ export class ProductEditComponent implements OnInit {
                     parseInt(this._id), 
                     this.prod['title'],
                     this.prod['description'],
-                    this.prod['direction'],
+                    this.prod['location'],
                     this.prod['image'],
-                    this.prod['category']
+                    this.prod['category'],
+                    this.prod['telephone']
                 );
 
                 if (this.status != "success") {

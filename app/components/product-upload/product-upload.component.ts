@@ -53,6 +53,7 @@ export class ProductUploadComponent implements OnInit {
             "",
             "",
             "",
+            "",
             ""
         );
     }

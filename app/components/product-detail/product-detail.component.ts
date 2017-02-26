@@ -36,7 +36,7 @@ export class ProductDetailComponent implements OnInit {
                 this.status = result.status;
                 console.log(this.product);
 
-                if (this.status != "success") {
+                if (this.status !== "success") {
                     this.router.navigate(['']);
                 }
             },

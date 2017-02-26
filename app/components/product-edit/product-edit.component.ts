@@ -4,16 +4,23 @@ import { Product } from '../../model/Product';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
-  selector: 'product-upload',
+  selector: 'product-edit',
   templateUrl: './app/components/product-upload/product-upload.template.html',
   providers: [ ProductService ]
 })
 
-export class ProductUploadComponent implements OnInit {
+export class ProductEditComponent implements OnInit {
 
-    public id: string;
-    public title = "upload your gift";
+    public _id: string;
+    public _title: string;
+    public _description: string;
+    public _direction: string;
+    public _image: string;
+    public _category: string;
+
+    public title = "edit gift";
     public product: Product;
+    public prod: Product[];
     public status:string;
     public errorMessage:any;
 
@@ -26,35 +33,67 @@ export class ProductUploadComponent implements OnInit {
     ) {}
 
     onsubmit() {
-            this.productService.addProduct(this.product)
-                .subscribe(
-                    response => {
-                        this.status = response.status;
-                        if (status !== "success") {
-                            //alert ("server ERROR");
-                            this.router.navigate(['']);
-                        }
-                    },
-                    error => {
-                        this.errorMessage = <any>error;
-                        if (this.errorMessage !== null) {
-                            console.log(this.errorMessage);
-                            alert("request error");
-                        }
+        this.productService.editProduct(this._id, this.product)
+            .subscribe(
+                response => {
+                    this.status = response.status;
+                    if (status !== "success") {
+                        //alert ("server ERROR");
                     }
-                );
-                this.router.navigate(['']);
+                },
+                error => {
+                    this.errorMessage = <any>error;
+                    if (this.errorMessage !== null) {
+                        console.log(this.errorMessage);
+                        alert("request error");
+                    }
+                }
+            );
+            this.router.navigate(['']);
     }
 
     ngOnInit() {
         this.product = new Product(
-            0, 
+            parseInt(this._id), 
             "",
             "",
             "",
             "",
             ""
         );
+        this.getProduct();
+    }
+
+    getProduct() {
+        this.activatedRoute.params.subscribe((params: Params) => {
+            this._id = params['id'];
+        });
+        console.log('dentro de getProduct. id --> ' + this._id);
+        this.productService.getProduct(this._id).subscribe(
+            result => {
+                this.prod = result.data;
+                this.status = result.status;
+                console.log(this.prod);
+
+                this.product = new Product(
+                    parseInt(this._id), 
+                    this.prod['title'],
+                    this.prod['description'],
+                    this.prod['direction'],
+                    this.prod['image'],
+                    this.prod['category']
+                );
+
+                if (this.status != "success") {
+                    this.router.navigate(['']);
+                }
+            },
+            error => {
+                this.errorMessage = <any>error;
+                if (this.errorMessage !== null) {
+                    alert("request error");
+                }
+            });
     }
 
     fileChangeEvent(fileInput: any) {

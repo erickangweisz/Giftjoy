@@ -1,0 +1,12 @@
+.confirmDelete {
+    float: left;
+    position: absolute;
+    background: white;
+    padding: 12px;
+    margin-top: -46px;
+}
+
+.img_ {
+    width: 80px;
+    height: 80px;
+}

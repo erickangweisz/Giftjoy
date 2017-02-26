@@ -1,5 +1,5 @@
 <div class="container">
-    <h2>upload your gift</h2>
+    <h2>{{ title }}</h2>
 
     <form (ngSubmit)="onsubmit()">
         <div class="form-group">
@@ -26,7 +26,12 @@
             </select>
         </div>
 
-        <button type="submit">Submit</button>
+        <div class="form-group">
+            <label for="image ">image</label>
+            <input type="file" placeholder="upload image" name="image" (change)="fileChangeEvent($event)">
+        </div>
+
+        <button type="submit">{{title}}</button>
     </form>
 
 </div>

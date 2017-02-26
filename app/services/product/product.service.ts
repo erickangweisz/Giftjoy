@@ -28,4 +28,20 @@ export class ProductService {
         return this._http.post('http://localhost/api-rest/gitjoyy-api.php/products', params, {headers: headers})
                             .map(res => res.json());
     }
+
+    editProduct(id: string, product: Product) {
+        let json = JSON.stringify(product);
+        let params = "json=" + json;
+        let headers = new Headers({"Content-type":"application/x-www-form-urlencoded"});
+
+        return this._http.post('http://localhost/api-rest/gitjoyy-api.php/update-product/' + id, params, {headers: headers})
+                            .map(res => res.json());
+    }
+
+    deleteProduct(id: string) {
+        this._http.head("*");
+        return this._http.get('http://localhost/api-rest/gitjoyy-api.php/delete-product/' + id)
+                            .map(res => res.json());
+    }
+
 }

@@ -1,16 +1,5 @@
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">giftjoy</a>
-            <button [routerLink]="['']">Home</button>
-            <button [routerLink]="['/profile']" *ngIf="auth.authenticated()">Profile</button>
-            <button [routerLink]="['/product-upload']" *ngIf="auth.authenticated()">upload your gift</button>
-            <button (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</button>
-            <button (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</button>
-        </div>
-    </div>
-</nav>
-
+<navbar></navbar>
 <main class="container">
     <router-outlet></router-outlet>
 </main>
+<foot></foot>

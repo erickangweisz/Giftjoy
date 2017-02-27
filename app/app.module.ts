@@ -16,6 +16,9 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
 import { ProductUploadComponent } from './components/product-upload/product-upload.component';
 import { ProductEditComponent } from './components/product-edit/product-edit.component';
 
+import { NavbarComponent }      from './components/navbar/navbar.component';
+import { FootComponent}         from './components/foot/foot.component';
+
 import { routing,
          appRoutingProviders } from './app.routes';
 
@@ -29,7 +32,9 @@ import { routing,
         ProductListComponent,
         ProductDetailComponent,
         ProductUploadComponent,
-        ProductEditComponent
+        ProductEditComponent,
+        NavbarComponent,
+        FootComponent
     ],
     providers:    [
         appRoutingProviders,

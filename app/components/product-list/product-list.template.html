@@ -1,20 +1,24 @@
-<ul>
-    <li *ngFor="let product of products">
-        <div>
-            <img src="http://localhost/api-rest/uploads/{{product.image}}" *ngIf="product.image && product.image !== 'null'" class="img_" />
+<div class="container">
+    <div class="row">
+        <ul>
+            <li *ngFor="let product of products">
+                <div>
+                    <img src="http://localhost/api-rest/uploads/{{product.image}}" *ngIf="product.image && product.image !== 'null'" class="img_" />
 
-            <h4>{{product.title}}</h4>
-            <p>{{product.direction}}</p>
+                    <h4>{{product.title}}</h4>
+                    <p>{{product.direction}}</p>
 
-            <a [routerLink]="['/product', product.id]">view</a>
-            <a [routerLink]="['/product-edit', product.id]" *ngIf="auth.authenticated()">edit</a>
-            <a (click)="onDeleteConfirm(product.id)" style="cursor: pointer" *ngIf="auth.authenticated()">delete</a>
+                    <a [routerLink]="['/product', product.id]">view</a>
+                    <a [routerLink]="['/product-edit', product.id]" *ngIf="auth.authenticated()">edit</a>
+                    <a (click)="onDeleteConfirm(product.id)" style="cursor: pointer" *ngIf="auth.authenticated()">delete</a>
 
-            <div class="confirmDelete" *ngIf="confirm === product.id">
-                <a (click)="onDeleteProduct(product.id)" style="cursor: pointer">delete</a>
-                <a (click)="onCancelConfirm(product.id)" style="cursor: pointer">cancel</a>
-            </div>
-        </div>
-        <br>
-    </li>
-</ul>
+                    <div class="confirmDelete" *ngIf="confirm === product.id">
+                        <a (click)="onDeleteProduct(product.id)" style="cursor: pointer">delete</a>
+                        <a (click)="onCancelConfirm(product.id)" style="cursor: pointer">cancel</a>
+                    </div>
+                </div>
+                <br>
+            </li>
+        </ul>
+    </div>
+</div>

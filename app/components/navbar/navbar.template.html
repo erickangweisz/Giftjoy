@@ -1,24 +1,22 @@
-<div class="navbar-fixed">
-    <nav class="navbar navbar-default">
-        <div class="nav-wrapper container">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">giftjoy</a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a [routerLink]="['']">Home</a></li>
-                    <li><a [routerLink]="['/profile']" *ngIf="auth.authenticated()">Profile</a></li>
-                    <li><a [routerLink]="['/product-upload']" *ngIf="auth.authenticated()">upload your gift</a></li>
-                    <li><button (click)="auth.login()" *ngIf="!auth.authenticated()" class="waves-effect waves-light btn">Log In</button></li>
-                    <li><button (click)="auth.logout()" *ngIf="auth.authenticated()" class="waves-effect waves-light btn">Log Out</button></li>
-                </ul>
-                <ul id="nav-mobile" class="side-nav">
-                    <li><a [routerLink]="['']">Home</a></li>
-                    <li><a [routerLink]="['/profile']" *ngIf="auth.authenticated()">Profile</a></li>
-                    <li><a [routerLink]="['/product-upload']" *ngIf="auth.authenticated()">upload your gift</a></li>
-                    <li><button (click)="auth.login()" *ngIf="!auth.authenticated()" class="waves-effect waves-light btn">Log In</button></li>
-                    <li><button (click)="auth.logout()" *ngIf="auth.authenticated()" class="waves-effect waves-light btn">Log Out</button></li>
-                </ul>
-                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-            </div>
+<nav class="navbar navbar-default">
+    <div class="nav-wrapper container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">giftjoy</a>
+            <ul class="right hide-on-med-and-down">
+                <li><a [routerLink]="['']">Home</a></li>
+                <li><a [routerLink]="['/profile']" *ngIf="auth.authenticated()">Profile</a></li>
+                <li><a [routerLink]="['/product-upload']" *ngIf="auth.authenticated()">upload your gift</a></li>
+                <li><button (click)="auth.login()" *ngIf="!auth.authenticated()" class="waves-effect waves-light btn">Log In</button></li>
+                <li><button (click)="auth.logout()" *ngIf="auth.authenticated()" class="waves-effect waves-light btn">Log Out</button></li>
+            </ul>
+            <ul id="nav-mobile" class="side-nav">
+                <li><a [routerLink]="['']">Home</a></li>
+                <li><a [routerLink]="['/profile']" *ngIf="auth.authenticated()">Profile</a></li>
+                <li><a [routerLink]="['/product-upload']" *ngIf="auth.authenticated()">upload your gift</a></li>
+                <li><button (click)="auth.login()" *ngIf="!auth.authenticated()" class="waves-effect waves-light btn">Log In</button></li>
+                <li><button (click)="auth.logout()" *ngIf="auth.authenticated()" class="waves-effect waves-light btn">Log Out</button></li>
+            </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>
-    </nav>
-</div>
+    </div>
+</nav>

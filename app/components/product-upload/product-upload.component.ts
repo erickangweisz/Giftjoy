@@ -3,6 +3,8 @@ import { ProductService } from '../../services/product/product.service';
 import { Product } from '../../model/Product';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
+declare var $:any;
+
 @Component({
   selector: 'product-upload',
   templateUrl: './app/components/product-upload/product-upload.template.html',
@@ -47,6 +49,8 @@ export class ProductUploadComponent implements OnInit {
     }
 
     ngOnInit() {
+        $('select').material_select();
+
         this.product = new Product(
             0, 
             "",

@@ -1,24 +1,19 @@
-<div class="container">
-    <div class="row">
-        <ul>
-            <li *ngFor="let product of products">
-                <div>
-                    <img src="http://localhost/api-rest/uploads/{{product.image}}" *ngIf="product.image && product.image !== 'null'" class="img_" />
+<div class="container marketing">
+    <section id="blog-landing">
+        <article *ngFor="let product of products" class="white-panel">
+            <img src="http://localhost/api-rest/uploads/{{product.image}}" *ngIf="product.image && product.image !== 'null'" [routerLink]="['/product', product.id]" />
+            <br><br>
+            <span><a [routerLink]="['/product', product.id]">{{ product.title }}</a></span>
+            <p>{{ product.description }}</p>
+            <hr>
+            <a [routerLink]="['/product', product.id]">view</a>
+            <a [routerLink]="['/product-edit', product.id]" *ngIf="auth.authenticated()">edit</a>
+            <a (click)="onDeleteConfirm(product.id)" style="cursor: pointer" *ngIf="auth.authenticated()">delete</a>
 
-                    <h4>{{product.title}}</h4>
-                    <p>{{product.direction}}</p>
-
-                    <a [routerLink]="['/product', product.id]">view</a>
-                    <a [routerLink]="['/product-edit', product.id]" *ngIf="auth.authenticated()">edit</a>
-                    <a (click)="onDeleteConfirm(product.id)" style="cursor: pointer" *ngIf="auth.authenticated()">delete</a>
-
-                    <div class="confirmDelete" *ngIf="confirm === product.id">
-                        <a (click)="onDeleteProduct(product.id)" style="cursor: pointer">delete</a>
-                        <a (click)="onCancelConfirm(product.id)" style="cursor: pointer">cancel</a>
-                    </div>
-                </div>
-                <br>
-            </li>
-        </ul>
-    </div>
+            <div class="confirmDelete" *ngIf="confirm === product.id">
+                <a (click)="onDeleteProduct(product.id)" style="cursor: pointer">delete</a>
+                <a (click)="onCancelConfirm(product.id)" style="cursor: pointer">cancel</a>
+            </div>
+        </article>
+    </section>
 </div>

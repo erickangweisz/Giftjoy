@@ -4,14 +4,16 @@ import { Product } from '../../model/Product';
 
 import { Auth } from '../../services/auth/auth.service';
 
+declare var $:any;
+
 @Component({
   selector: 'product-list',
   templateUrl: './app/components/product-list/product-list.template.html',
+  styleUrls: ['./app/components/product-list/product-list.component.css'],
   providers: [ ProductService ]
 })
 
 export class ProductListComponent implements OnInit {
-  public title:string = "Product List:";
   public products: Product[];
   public status:string;
   public errorMessage:any;
@@ -21,7 +23,7 @@ export class ProductListComponent implements OnInit {
               private auth: Auth) {}
 
   ngOnInit() { 
-      this.getProducts(); 
+       this.getProducts(); 
   }
 
   getProducts() {
@@ -30,10 +32,19 @@ export class ProductListComponent implements OnInit {
                                 result => {
                                     this.products = result.data; 
                                     this.status = result.status;
-                                    console.log('product-list success');
 
                                     if (this.status !== "success") {
                                         alert("server error");
+                                    } else {
+                                        $(document).ready(function() {
+                                            $('#blog-landing').pinterest_grid({
+                                                no_columns: 4,
+                                                padding_x: 10,
+                                                padding_y: 10,
+                                                margin_bottom: 50,
+                                                single_column_breakpoint: 700
+                                            });
+                                        });
                                     }
                                 }, 
                                 error => {

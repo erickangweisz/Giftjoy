@@ -1,41 +1,87 @@
 <div class="container">
-    <h2>{{ title }}</h2>
+    <div class="card">
+        <div class="container">
+            <br>
+            <h2>{{ title }}</h2>
 
-    <form (ngSubmit)="onsubmit()">
-        <div class="form-group">
-            <label for="title">title</label>
-            <input type="text" required [(ngModel)]="product.title" name="title">
+            <form (ngSubmit)="onsubmit()">
+                <div class="form-group">
+                    <label for="title">title</label>
+                    <input type="text" required [(ngModel)]="product.title" name="title">
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="textarea1" class="materialize-textarea" required [(ngModel)]="product.description" name="description"></textarea>
+                        <label for="textarea1">description</label>
+                    </div>
+                </div>
+
+                <!--<div class="row">
+                    <div class="input-field col s12">
+                        <select multiple [(ngModel)]="product.category" name="category" required>
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="electronics">electronics</option>
+                            <option value="furniture">furniture</option>
+                            <option value="clothes">clothes</option>
+                        </select>
+                        <label>category</label>
+                    </div>
+                </div>-->
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select required [(ngModel)]="product.category" name="category">
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="electronics">electronics</option>
+                            <option value="furniture">furniture</option>
+                            <option value="clothes">clothes</option>
+                        </select>
+                        <label>category</label>
+                    </div>
+                </div>
+
+                <!--<div class="row">
+                    <label for="category">category</label>
+                    <select class="browser-default" required [(ngModel)]="product.category" name="category">
+                        <option value="" disabled selected>Choose your option</option>
+                        <option value="electronics">electronics</option>
+                        <option value="furniture">furniture</option>
+                        <option value="clothes">clothes</option>
+                    </select>
+                </div>-->
+
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">location_on</i>
+                        <input id="icon_prefix" type="text" class="validate" required [(ngModel)]="product.location" name="location">
+                        <label for="icon_prefix">location</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">phone</i>
+                        <input id="icon_telephone" type="tel" class="validate" required [(ngModel)]="product.telephone" name="telephone">
+                        <label for="icon_telephone">telephone</label>
+                    </div>
+                </div>
+
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>upload image</span>
+                        <input type="file" multiple (change)="fileChangeEvent($event)">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text" placeholder="Upload one image" (change)="fileChangeEvent($event)">
+                    </div>
+                </div>
+
+                <br>
+                <div class="right-align">
+                    <button class="btn waves-effect waves-light" type="submit" name="action">{{ title }}
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+                <br><br>
+            </form>
         </div>
-
-        <div class=" form-group">
-            <label for="description ">description</label>
-            <input type="text " required [(ngModel)]="product.description" name="description">
-        </div>
-
-        <div class="form-group">
-            <label for="location ">location</label>
-            <input type="text " required [(ngModel)]="product.location" name="location">
-        </div>
-
-        <label for="category">category</label>
-        <select class="browser-default" required [(ngModel)]="product.category" name="category">
-            <option value="" disabled selected>Choose your option</option>
-            <option value="electronics ">electronics</option>
-            <option value="furniture ">furniture</option>
-            <option value="clothes ">clothes</option>
-        </select>
-
-        <div class="form-group">
-            <label for="telephone ">telephone</label>
-            <input type="text " required [(ngModel)]="product.telephone" name="telephone">
-        </div>
-
-        <div class="form-group">
-            <label for="image ">image</label>
-            <input type="file" placeholder="upload image" name="image" (change)="fileChangeEvent($event)">
-        </div>
-
-        <button type="submit">{{title}}</button>
-    </form>
-
+    </div>
 </div>

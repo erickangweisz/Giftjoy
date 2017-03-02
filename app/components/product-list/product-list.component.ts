@@ -58,6 +58,15 @@ export class ProductListComponent implements OnInit {
 
   onDeleteConfirm(id: string) {
     this.confirm = id;
+    $(document).ready(function() {
+        $('#blog-landing').pinterest_grid({
+            no_columns: 4,
+            padding_x: 10,
+            padding_y: 10,
+            margin_bottom: 50,
+            single_column_breakpoint: 700
+        });
+    });
   }
 
   onCancelConfirm(id: string) {
@@ -65,7 +74,7 @@ export class ProductListComponent implements OnInit {
   }
 
   onDeleteProduct(id: string) {
-    this._productService.deleteProduct(id)
+      this._productService.deleteProduct(id)
                 .subscribe(
                     result => {
                         this.status = result.status;

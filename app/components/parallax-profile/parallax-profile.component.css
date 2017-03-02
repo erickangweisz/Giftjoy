@@ -1,0 +1,8 @@
+.without_margin {
+    margin: 0px;
+    padding: 0px;
+}
+
+.margin_right {
+    margin-right: 15px;
+}

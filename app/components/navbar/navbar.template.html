@@ -3,11 +3,11 @@
         <div class="navbar-header">
             <a class="navbar-brand" href="#">giftjoy</a>
             <ul class="right hide-on-med-and-down">
-                <li><a [routerLink]="['']">Home</a></li>
-                <li><a [routerLink]="['/profile']" *ngIf="auth.authenticated()">Profile</a></li>
-                <li><a [routerLink]="['/product-upload']" *ngIf="auth.authenticated()">upload your gift</a></li>
+                <li><a [routerLink]="['']"><i class="material-icons left">store</i>home</a></li>
+                <li><a [routerLink]="['/profile']" *ngIf="auth.authenticated()"><i class="material-icons left">perm_identity</i>profile</a></li>
+                <li><a [routerLink]="['/product-upload']" *ngIf="auth.authenticated()"><i class="material-icons left">redeem</i>upload a gift</a></li>
                 <li><a (click)="auth.login()" *ngIf="!auth.authenticated()" class="waves-effect waves-light btn"><i class="material-icons left">input</i>Log In</a></li>
-                <li><a (click)="auth.logout()" *ngIf="auth.authenticated()" class="waves-effect waves-light btn">Log Out</a></li>
+                <li><a (click)="auth.logout()" *ngIf="auth.authenticated()" class="waves-effect waves-light btn"><i class="material-icons left">open_in_new</i>Log Out</a></li>
             </ul>
             <ul id="nav-mobile" class="side-nav">
                 <li><a [routerLink]="['']">Home</a></li>

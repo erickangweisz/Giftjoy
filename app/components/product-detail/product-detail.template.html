@@ -14,9 +14,9 @@
                 <span class="white-text">
                     <h3>{{ product?.title }}</h3>
                     {{ product?.description }}
-                    <p>location: {{ product?.location }}</p>
-                    <p>category: {{ product?.category }}</p>
-                    <p>telephone: {{ product?.telephone }}</p>
+                    <p><i class="material-icons">location_on</i> location: {{ product?.location }}</p>
+                    <p><i class="material-icons">turned_in_not</i> category: {{ product?.category }}</p>
+                    <p><i class="material-icons">phone</i> telephone: {{ product?.telephone }}</p>
                 </span>
             </div>
             <a [routerLink]="['']" class=" waves-effect waves-light btn ">Back to</a>

@@ -17,3 +17,5 @@ _temp
 !wallaby.js
 
 auth0.config.ts
+
+uploads/**

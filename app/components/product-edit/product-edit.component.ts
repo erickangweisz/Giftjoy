@@ -5,7 +5,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'product-edit',
-  templateUrl: './app/components/product-upload/product-upload.template.html',
+  templateUrl: './app/components/product-edit/product-edit.template.html',
   providers: [ ProductService ]
 })
 
@@ -49,6 +49,7 @@ export class ProductEditComponent implements OnInit {
                     }
                 }
             );
+            this.router.navigate(['']);
             this.router.navigate(['']);
     }
 

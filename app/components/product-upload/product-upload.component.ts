@@ -14,7 +14,7 @@ declare var $:any;
 export class ProductUploadComponent implements OnInit {
 
     public id: string;
-    public title = "upload your gift";
+    public title = "upload a gift";
     public product: Product;
     public status:string;
     public errorMessage:any;
@@ -28,24 +28,25 @@ export class ProductUploadComponent implements OnInit {
     ) {}
 
     onsubmit() {
-            this.productService.addProduct(this.product)
-                .subscribe(
-                    response => {
-                        this.status = response.status;
-                        if (status !== "success") {
-                            //alert ("server ERROR");
-                            this.router.navigate(['']);
-                        }
-                    },
-                    error => {
-                        this.errorMessage = <any>error;
-                        if (this.errorMessage !== null) {
-                            console.log(this.errorMessage);
-                            alert("request error");
-                        }
+        this.productService.addProduct(this.product)
+            .subscribe(
+                response => {
+                    this.status = response.status;
+                    if (status !== "success") {
+                        //alert ("server ERROR");
+                        this.router.navigate(['']);
                     }
-                );
-                this.router.navigate(['']);
+                },
+                error => {
+                    this.errorMessage = <any>error;
+                    if (this.errorMessage !== null) {
+                        console.log(this.errorMessage);
+                        alert("request error");
+                    }
+                }
+            );
+            this.router.navigate(['']);
+            this.router.navigate(['']);
     }
 
     ngOnInit() {

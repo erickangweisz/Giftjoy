@@ -19,6 +19,7 @@ import { ProductEditComponent } from './components/product-edit/product-edit.com
 import { NavbarComponent }      from './components/navbar/navbar.component';
 import { FootComponent}         from './components/foot/foot.component';
 import { ParallaxComponent }    from './components/parallax/parallax.component';
+import { ParallaxProfileComponent } from './components/parallax-profile/parallax-profile.component';
 
 import { routing,
          appRoutingProviders } from './app.routes';
@@ -36,7 +37,8 @@ import { routing,
         ProductEditComponent,
         NavbarComponent,
         FootComponent,
-        ParallaxComponent
+        ParallaxComponent,
+        ParallaxProfileComponent
     ],
     providers:    [
         appRoutingProviders,

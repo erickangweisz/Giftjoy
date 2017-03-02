@@ -46,7 +46,6 @@ export class ProductUploadComponent implements OnInit {
                 }
             );
             this.router.navigate(['']);
-            this.router.navigate(['']);
     }
 
     ngOnInit() {

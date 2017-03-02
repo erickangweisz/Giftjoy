@@ -3,6 +3,7 @@ import { ProductService } from '../../services/product/product.service';
 import { Product } from '../../model/Product';
 
 import { Auth } from '../../services/auth/auth.service';
+import { Router } from '@angular/router';
 
 declare var $:any;
 
@@ -20,7 +21,8 @@ export class ProductListComponent implements OnInit {
   public confirm;
 
   constructor(private _productService: ProductService,
-              private auth: Auth) {}
+              private auth: Auth,
+              private router: Router) {}
 
   ngOnInit() { 
        this.getProducts(); 
@@ -67,6 +69,7 @@ export class ProductListComponent implements OnInit {
             single_column_breakpoint: 700
         });
     });
+    this.router.navigate(['']);
   }
 
   onCancelConfirm(id: string) {

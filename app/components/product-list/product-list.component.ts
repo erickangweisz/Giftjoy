@@ -59,6 +59,7 @@ export class ProductListComponent implements OnInit {
   }
 
   onDeleteConfirm(id: string) {
+    this.router.navigate(['']);
     this.confirm = id;
     $(document).ready(function() {
         $('#blog-landing').pinterest_grid({
@@ -69,7 +70,6 @@ export class ProductListComponent implements OnInit {
             single_column_breakpoint: 700
         });
     });
-    this.router.navigate(['']);
   }
 
   onCancelConfirm(id: string) {

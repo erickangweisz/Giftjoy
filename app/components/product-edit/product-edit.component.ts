@@ -51,6 +51,7 @@ export class ProductEditComponent implements OnInit {
             );
             this.router.navigate(['']);
             this.router.navigate(['']);
+            this.router.navigate(['']);
     }
 
     ngOnInit() {

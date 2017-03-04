@@ -1,8 +1,8 @@
-CREATE DATABASE IF NOT EXISTS giftjoy
-USE giftjoy
+
 
 CREATE TABLE products(
 id       int(255) auto_increment not null,
+user_id   varchar(255),
 title   varchar(255),
 description TEXT,
 location TEXT,

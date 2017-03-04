@@ -5,10 +5,11 @@
             <br><br>
             <span><a [routerLink]="['/product', product.id]">{{ product.title }}</a></span>
             <p>{{ product.description }}</p>
+            <p>{{ product.client_id }}</p>
             <hr>
             <a [routerLink]="['/product', product.id]">view</a>
-            <a [routerLink]="['/product-edit', product.id]" *ngIf="auth.authenticated()">edit</a>
-            <a (click)="onDeleteConfirm(product.id)" style="cursor: pointer" *ngIf="auth.authenticated()">delete</a>
+            <a *ngIf="auth.authenticated() && product.client_id === isClientID()" [routerLink]="['/product-edit', product.id]">edit</a>
+            <a *ngIf="auth.authenticated() && product.client_id === isClientID()" (click)="onDeleteConfirm(product.id)" style="cursor: pointer">delete</a>
 
             <div class="confirmDelete" *ngIf="confirm === product.id">
                 <a (click)="onDeleteProduct(product.id)" style="cursor: pointer">delete</a>

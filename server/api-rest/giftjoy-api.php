@@ -35,6 +35,22 @@ $app->get("/products/:id", function($id) use($db, $app) {
 	echo json_encode($result);
 });
 
+$app->get("/products/:user_id", function($user_id) use($db, $app) {
+	$query = $db->query("SELECT * FROM products WHERE user_id = $user_id;");
+	$products = $query->fetch_assoc();
+
+	if ($query->num_rows == 1) {
+		$result = array("status" => "success",
+			"data" => $products);
+	} else {
+		$result = array(
+			"status" => "error",
+			"message" => "The product does not exist.");
+	}
+
+	echo json_encode($result);
+});
+
 $app->get("/random-product", function() use($db, $app) {
 	$query = $db->query("SELECT * FROM products ORDER BY RAND() LIMIT 1;");
 	$product = $query->fetch_assoc();
@@ -58,6 +74,7 @@ $app->post("/products", function() use($db, $app) {
 	$data = json_decode($json, true);
 
 	$query = "INSERT INTO products VALUES(NULL,"
+			· "'{$data["user_id"]}',"
 			. "'{$data["title"]}',"
 			. "'{$data["description"]}',"
 			. "'{$data["location"]}',"
@@ -83,6 +100,7 @@ $app->post("/update-product/:id", function($id) use($db, $app) {
 	$data = json_decode($json, true);
 
 	$query = "UPDATE products SET "
+			· "user_id = '{$data["user_id"]}', "
 			. "title = '{$data["title"]}', "
 			. "description = '{$data["description"]}', "
 			. "location = '{$data["location"]}', "

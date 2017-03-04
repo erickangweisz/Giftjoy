@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { Auth }      from '../../services/auth/auth.service';
 
 @Component({
@@ -6,6 +6,7 @@ import { Auth }      from '../../services/auth/auth.service';
   templateUrl: './app/components/home/home.template.html'
 })
 
+@Injectable()
 export class HomeComponent {
   constructor(private auth: Auth) {}
 };

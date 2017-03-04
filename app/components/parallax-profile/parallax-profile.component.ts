@@ -13,6 +13,7 @@ export class ParallaxProfileComponent implements OnInit {
   constructor(private auth: Auth) {}
 
   ngOnInit() {
+    console.log(this.auth);
     $(document).ready(function() {
         $('.parallax').parallax();
     });

@@ -20,6 +20,12 @@ export class ProductService {
                             .map(res => res.json());
     }
 
+    getProductByUserId(user_id: string) {
+        this._http.head("*");
+        return this._http.get('http://localhost/api-rest/giftjoy-api.php/products/' + user_id)
+                            .map(res => res.json());
+    }
+
     addProduct(product: Product) {
         let json = JSON.stringify(product);
         let params = "json=" + json;

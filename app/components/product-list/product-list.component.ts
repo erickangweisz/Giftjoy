@@ -15,6 +15,7 @@ declare var $:any;
 })
 
 export class ProductListComponent implements OnInit {
+
   public products: Product[];
   public status:string;
   public errorMessage:any;
@@ -22,16 +23,25 @@ export class ProductListComponent implements OnInit {
 
   constructor(private _productService: ProductService,
               private auth: Auth,
-              private router: Router) {}
+              private router: Router) {
+                
+              }
 
   ngOnInit() { 
        this.getProducts(); 
+  }
+
+  isClientID() {
+      for (let i=0; i<this.products.length; i++) {
+          return this.products[i]['client_id'];
+      }
   }
 
   getProducts() {
       this._productService.getProducts()
                             .subscribe(
                                 result => {
+                                    console.log(result.data);
                                     this.products = result.data; 
                                     this.status = result.status;
 
@@ -59,7 +69,6 @@ export class ProductListComponent implements OnInit {
   }
 
   onDeleteConfirm(id: string) {
-    this.router.navigate(['']);
     this.confirm = id;
     $(document).ready(function() {
         $('#blog-landing').pinterest_grid({
@@ -70,6 +79,7 @@ export class ProductListComponent implements OnInit {
             single_column_breakpoint: 700
         });
     });
+    this.router.navigate(['']);
   }
 
   onCancelConfirm(id: string) {

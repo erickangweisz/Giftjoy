@@ -3,6 +3,8 @@ import { ProductService } from '../../services/product/product.service';
 import { Product } from '../../model/Product';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
+import { Auth } from '../../services/auth/auth.service';
+
 declare var $:any;
 
 @Component({
@@ -24,7 +26,8 @@ export class ProductUploadComponent implements OnInit {
     public constructor(
         private activatedRoute:ActivatedRoute,
         private router: Router,
-        private productService: ProductService
+        private productService: ProductService,
+        private auth: Auth
     ) {}
 
     onsubmit() {
@@ -50,9 +53,11 @@ export class ProductUploadComponent implements OnInit {
 
     ngOnInit() {
         $('select').material_select();
+        console.log('user_id --> ' + this.auth.userProfile.user_id);
 
         this.product = new Product(
             0, 
+            this.auth.userProfile.user_id,
             "",
             "",
             "",

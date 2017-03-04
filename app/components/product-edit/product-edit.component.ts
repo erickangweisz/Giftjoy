@@ -3,6 +3,8 @@ import { ProductService } from '../../services/product/product.service';
 import { Product } from '../../model/Product';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
+import { Auth } from '../../services/auth/auth.service';
+
 @Component({
   selector: 'product-edit',
   templateUrl: './app/components/product-edit/product-edit.template.html',
@@ -12,6 +14,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 export class ProductEditComponent implements OnInit {
 
     public _id: string;
+    public _user_id: string;
     public _title: string;
     public _description: string;
     public _location: string;
@@ -29,7 +32,8 @@ export class ProductEditComponent implements OnInit {
     public constructor(
         private activatedRoute:ActivatedRoute,
         private router: Router,
-        private productService: ProductService
+        private productService: ProductService,
+        private auth: Auth
     ) {}
 
     onsubmit() {
@@ -56,7 +60,8 @@ export class ProductEditComponent implements OnInit {
 
     ngOnInit() {
         this.product = new Product(
-            parseInt(this._id), 
+            parseInt(this._id),
+            this.auth.userProfile.user_id, 
             "",
             "",
             "",
@@ -79,7 +84,8 @@ export class ProductEditComponent implements OnInit {
                 console.log(this.prod);
 
                 this.product = new Product(
-                    parseInt(this._id), 
+                    parseInt(this._id),
+                    this.prod['user_id'], 
                     this.prod['title'],
                     this.prod['description'],
                     this.prod['location'],

@@ -22,6 +22,7 @@ export class Auth {
 
   //Store profile object in auth class
   userProfile: any;
+  userid: string;
 
   constructor() {
     // Set userProfile attribute if already saved profile
@@ -42,9 +43,16 @@ export class Auth {
         profile.user_metadata = profile.user_metadata || {};
         localStorage.setItem('profile', JSON.stringify(profile));
         this.userProfile = profile;
+        console.log('this.userProfile.user_id -> ' + this.userProfile.user_id);
+        this.userid = this.userProfile.user_id;
       });
     });
   };
+
+  public getuserid() {
+    //console.log('this.userid --> ' + this.userid);
+    return this.userid;
+  }
 
   public login() {
     // Call the show method to display the widget.

@@ -10,19 +10,19 @@ export class ProductService {
 
     getProducts() {
         this._http.head("*");
-        return this._http.get('http://localhost/api-rest/giftjoy-api.php/products')
+        return this._http.get('http://localhost/restful/giftjoy-api.php/products')
                             .map(res => res.json());
     }
 
     getProduct(id: string) {
         this._http.head("*");
-        return this._http.get('http://localhost/api-rest/giftjoy-api.php/products/' + id)
+        return this._http.get('http://localhost/restful/giftjoy-api.php/products/' + id)
                             .map(res => res.json());
     }
 
     getProductByUserId(user_id: string) {
         this._http.head("*");
-        return this._http.get('http://localhost/api-rest/giftjoy-api.php/products/' + user_id)
+        return this._http.get('http://localhost/restful/giftjoy-api.php/products/' + user_id)
                             .map(res => res.json());
     }
 
@@ -31,7 +31,7 @@ export class ProductService {
         let params = "json=" + json;
         let headers = new Headers({"Content-type":"application/x-www-form-urlencoded"});
 
-        return this._http.post('http://localhost/api-rest/giftjoy-api.php/products', params, {headers: headers})
+        return this._http.post('http://localhost/restful/giftjoy-api.php/products', params, {headers: headers})
                             .map(res => res.json());
     }
 
@@ -40,13 +40,13 @@ export class ProductService {
         let params = "json=" + json;
         let headers = new Headers({"Content-type":"application/x-www-form-urlencoded"});
 
-        return this._http.post('http://localhost/api-rest/giftjoy-api.php/update-product/' + id, params, {headers: headers})
+        return this._http.post('http://localhost/restful/giftjoy-api.php/update-product/' + id, params, {headers: headers})
                             .map(res => res.json());
     }
 
     deleteProduct(id: string) {
         this._http.head("*");
-        return this._http.get('http://localhost/api-rest/giftjoy-api.php/delete-product/' + id)
+        return this._http.get('http://localhost/restful/giftjoy-api.php/delete-product/' + id)
                             .map(res => res.json());
     }
 

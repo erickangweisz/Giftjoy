@@ -1,7 +1,7 @@
 <div class="container marketing">
     <section id="blog-landing">
         <article *ngFor="let product of products" class="white-panel">
-            <img src="http://localhost/api-rest/uploads/{{product.image}}" *ngIf="product.image && product.image !== 'null'" [routerLink]="['/product', product.id]" />
+            <img src="http://localhost/restful/uploads/{{product.image}}" *ngIf="product.image && product.image !== 'null'" [routerLink]="['/product', product.id]" />
             <br><br>
             <span><a [routerLink]="['/product', product.id]">{{ product.title }}</a></span>
             <p>{{ product.description }}</p>

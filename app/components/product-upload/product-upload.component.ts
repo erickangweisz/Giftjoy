@@ -69,7 +69,7 @@ export class ProductUploadComponent implements OnInit {
 
     fileChangeEvent(fileInput: any) {
         this.filesToUpload = <Array<File>> fileInput.target.files;
-        this.makeFileRequest("http://localhost/api-rest/giftjoy-api.php/upload-file", [], 
+        this.makeFileRequest("http://localhost/restful/giftjoy-api.php/upload-file", [], 
         this.filesToUpload).then((result) => {
             this.product.image = result['filename'];
             console.log(result['filename']);

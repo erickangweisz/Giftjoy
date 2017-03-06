@@ -31,18 +31,7 @@ export class ProductListComponent implements OnInit {
        this.getProducts(); 
   }
 
-  isClientID() {
-      /*for (let i=0; i<this.products.length; i++) {
-          if (this.products[i]['client_id'] === this.auth.getuserid()) {
-              console.log('truee');
-              return true;
-          } else {
-              console.log('falsee');
-              return false;
-          }
-      }*/
-      //console.log('this.auth.getuserid() dentro de isClientID --> ' + this.auth.getuserid());
-      //return false;
+  getClientID() {
       return this.auth.getuserid();
   }
 

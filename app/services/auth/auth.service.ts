@@ -43,8 +43,8 @@ export class Auth {
         profile.user_metadata = profile.user_metadata || {};
         localStorage.setItem('profile', JSON.stringify(profile));
         this.userProfile = profile;
-        console.log('this.userProfile.user_id -> ' + this.userProfile.user_id);
-        this.userid = this.userProfile.user_id;
+        console.log('this.userProfile.user_id -> ' + this.userProfile.identities[0].user_id);
+        this.userid = this.userProfile.identities[0].user_id;
       });
     });
   };

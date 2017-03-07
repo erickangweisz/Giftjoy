@@ -17,7 +17,7 @@ export class ProductDetailComponent implements OnInit {
     public errorMessage:any;
 
     public constructor(
-        private activatedRoute:ActivatedRoute,
+        private activatedRoute: ActivatedRoute,
         private router: Router,
         private productService: ProductService
     ) {}

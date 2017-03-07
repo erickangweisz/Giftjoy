@@ -55,13 +55,12 @@ export class ProductEditComponent implements OnInit {
             );
             this.router.navigate(['']);
             this.router.navigate(['']);
-            this.router.navigate(['']);
     }
 
     ngOnInit() {
         this.product = new Product(
             parseInt(this._id),
-            this.auth.userProfile.user_id, 
+            this.auth.userProfile.identities[0].user_id,
             "",
             "",
             "",
@@ -85,7 +84,7 @@ export class ProductEditComponent implements OnInit {
 
                 this.product = new Product(
                     parseInt(this._id),
-                    this.prod['user_id'], 
+                    this.prod['client_id'], 
                     this.prod['title'],
                     this.prod['description'],
                     this.prod['location'],
@@ -108,7 +107,7 @@ export class ProductEditComponent implements OnInit {
 
     fileChangeEvent(fileInput: any) {
         this.filesToUpload = <Array<File>> fileInput.target.files;
-        this.makeFileRequest("http://localhost/api-rest/giftjoy-api.php/upload-file", [], 
+        this.makeFileRequest("http://localhost/restful/giftjoy-api.php/upload-file", [], 
         this.filesToUpload).then((result) => {
             this.product.image = result['filename'];
             console.log(result['filename']);

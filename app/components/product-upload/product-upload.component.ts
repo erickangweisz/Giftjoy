@@ -57,7 +57,7 @@ export class ProductUploadComponent implements OnInit {
 
         this.product = new Product(
             0, 
-            this.auth.userProfile.user_id,
+            this.auth.userProfile.identities[0].user_id,
             "",
             "",
             "",

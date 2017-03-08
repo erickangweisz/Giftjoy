@@ -22,7 +22,7 @@ export class ProductService {
 
     getProductByUserId(user_id: string) {
         this._http.head("*");
-        return this._http.get('http://localhost/restful/giftjoy-api.php/products/' + user_id)
+        return this._http.get('http://localhost/restful/giftjoy-api.php/productsbyclientid/' + user_id)
                             .map(res => res.json());
     }
 

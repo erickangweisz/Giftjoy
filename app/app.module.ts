@@ -20,6 +20,7 @@ import { NavbarComponent }      from './components/navbar/navbar.component';
 import { FootComponent}         from './components/foot/foot.component';
 import { ParallaxComponent }    from './components/parallax/parallax.component';
 import { ParallaxProfileComponent } from './components/parallax-profile/parallax-profile.component';
+import { ProductProfileComponent }  from './components/product-profile/product-profile.component';
 
 import { routing,
          appRoutingProviders } from './app.routes';
@@ -38,7 +39,8 @@ import { routing,
         NavbarComponent,
         FootComponent,
         ParallaxComponent,
-        ParallaxProfileComponent
+        ParallaxProfileComponent,
+        ProductProfileComponent
     ],
     providers:    [
         appRoutingProviders,

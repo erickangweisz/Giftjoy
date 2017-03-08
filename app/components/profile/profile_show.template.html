@@ -1,15 +1,7 @@
 <parallax-profile></parallax-profile>
-<div class="container">
-    <div *ngIf="auth.authenticated() && auth.userProfile">
-        <div class="row">
-            <div class="col-md-6">
-                <p><strong>Address: </strong> {{auth.userProfile.user_metadata.address}}</p>
-            </div>
-        </div>
-        <button [routerLink]="['/profile/edit']" class="btn waves-effect waves-light">edit
-            <i class="material-icons right">edit</i>
-        </button>
-    </div>
+<div class="container marketing">
+    <product-profile></product-profile>
+
     <h4 *ngIf="!auth.authenticated()">You are not logged in, please click 'Log in' button to login</h4>
 </div>
 <br>

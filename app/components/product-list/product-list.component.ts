@@ -76,6 +76,7 @@ export class ProductListComponent implements OnInit {
         });
     });
     this.router.navigate(['']);
+    this.router.navigate(['']);
   }
 
   onCancelConfirm(id: string) {

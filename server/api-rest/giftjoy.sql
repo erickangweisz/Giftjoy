@@ -3,6 +3,7 @@
 CREATE TABLE products(
 id       int(255) auto_increment not null,
 client_id   varchar(255),
+nickname   varchar(255),
 title   varchar(255),
 description TEXT,
 location TEXT,

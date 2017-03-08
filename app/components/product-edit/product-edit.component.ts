@@ -14,12 +14,6 @@ import { Auth } from '../../services/auth/auth.service';
 export class ProductEditComponent implements OnInit {
 
     public _id: string;
-    public _user_id: string;
-    public _title: string;
-    public _description: string;
-    public _location: string;
-    public _image: string;
-    public _category: string;
 
     public title = "edit gift";
     public product: Product;
@@ -61,6 +55,7 @@ export class ProductEditComponent implements OnInit {
         this.product = new Product(
             parseInt(this._id),
             this.auth.userProfile.identities[0].user_id,
+            this.auth.userProfile.nickname,
             "",
             "",
             "",
@@ -85,6 +80,7 @@ export class ProductEditComponent implements OnInit {
                 this.product = new Product(
                     parseInt(this._id),
                     this.prod['client_id'], 
+                    this.prod['nickname'],
                     this.prod['title'],
                     this.prod['description'],
                     this.prod['location'],

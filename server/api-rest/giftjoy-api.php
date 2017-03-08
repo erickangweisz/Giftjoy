@@ -10,7 +10,7 @@ $app->get("/products", function() use($db, $app) {
 		$products[] = $fila;
 	}
 	$result = array("status" => "success",
-		"data" => $products);
+					"data" => $products);
 	echo json_encode($result);
 });
 
@@ -44,6 +44,7 @@ $app->post("/products", function() use($db, $app) {
 	$data = json_decode($json, true);
 	$query = "INSERT INTO products VALUES(NULL, 
 			   '{$data["client_id"]}',"
+			. "'{$data["nickname"]}',"
 			. "'{$data["title"]}',"
 			. "'{$data["description"]}',"
 			. "'{$data["location"]}',"
@@ -67,6 +68,7 @@ $app->post("/update-product/:id", function($id) use($db, $app) {
 	$data = json_decode($json, true);
 	$query = "UPDATE products SET 
 			   client_id = '{$data["client_id"]}', "
+			. "nickname = '{$data["nickname"]}', "
 			. "title = '{$data["title"]}', "
 			. "description = '{$data["description"]}', "
 			. "location = '{$data["location"]}', "

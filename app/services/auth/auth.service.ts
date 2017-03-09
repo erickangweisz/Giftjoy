@@ -17,7 +17,14 @@ export class Auth {
         // only accept addresses with more than 10 chars
         return value.length > 10;
       }
-    }]
+    }],
+    theme: {
+      logo: '/app/src/img/giftjoy2.png',
+      primaryColor: '#3F51B5'
+    },
+    languageDictionary: {
+      title: "giftjoy"
+    }
   });
 
   //Store profile object in auth class

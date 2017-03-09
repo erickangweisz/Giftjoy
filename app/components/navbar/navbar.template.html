@@ -1,22 +1,47 @@
-<nav class="navbar navbar-default">
+<!--<nav class="navbar navbar-default indigo">
     <div class="nav-wrapper container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">giftjoy</a>
+            <a class="navbar-brand" href="#"><img src="app/src/img/giftjoy.png" style="width: 50px; height: 50px; margin-top: 8px;"></a>
             <ul class="right hide-on-med-and-down">
-                <li><a [routerLink]="['']"><i class="material-icons left">store</i>home</a></li>
-                <li><a [routerLink]="['/profile']" *ngIf="auth.authenticated()"><i class="material-icons left">perm_identity</i>profile</a></li>
-                <li><a [routerLink]="['/product-upload']" *ngIf="auth.authenticated()"><i class="material-icons left">redeem</i>upload a gift</a></li>
-                <li><a (click)="auth.login()" *ngIf="!auth.authenticated()" class="waves-effect waves-light btn"><i class="material-icons left">input</i>Log In</a></li>
-                <li><a (click)="auth.logout()" *ngIf="auth.authenticated()" class="waves-effect waves-light btn"><i class="material-icons left">open_in_new</i>Log Out</a></li>
+                <li><a [routerLink]="['']" class="white-text"><i class="material-icons left white-text">store</i>home</a></li>
+                <li><a [routerLink]="['/profile']" class="white-text" *ngIf="auth.authenticated()"><i class="material-icons left white-text">perm_identity</i>profile</a></li>
+                <li><a [routerLink]="['/product-upload']" class="white-text" *ngIf="auth.authenticated()"><i class="material-icons left white-text">redeem</i>upload a gift</a></li>
+                <li><a (click)="auth.login()" *ngIf="!auth.authenticated()" class="waves-effect waves-light btn teal lighten-1"><i class="material-icons left">input</i>Log In</a></li>
+                <li><a (click)="auth.logout()" *ngIf="auth.authenticated()" class="waves-effect waves-light btn teal lighten-1"><i class="material-icons left">open_in_new</i>Log Out</a></li>
             </ul>
             <ul id="nav-mobile" class="side-nav">
-                <li><a [routerLink]="['']">Home</a></li>
-                <li><a [routerLink]="['/profile']" *ngIf="auth.authenticated()">Profile</a></li>
-                <li><a [routerLink]="['/product-upload']" *ngIf="auth.authenticated()">upload your gift</a></li>
-                <li><a (click)="auth.login()" *ngIf="!auth.authenticated()" class="waves-effect waves-light btn">Log In</a></li>
-                <li><a (click)="auth.logout()" *ngIf="auth.authenticated()" class="waves-effect waves-light btn">Log Out</a></li>
+                <li><a [routerLink]="['']" class="white-text">Home</a></li>
+                <li><a [routerLink]="['/profile']" class="white-text" *ngIf="auth.authenticated()">Profile</a></li>
+                <li><a [routerLink]="['/product-upload']" class="white-text" *ngIf="auth.authenticated()">upload your gift</a></li>
+                <li><a (click)="auth.login()" *ngIf="!auth.authenticated()" class="waves-effect waves-light btn teal lighten-1">Log In</a></li>
+                <li><a (click)="auth.logout()" *ngIf="auth.authenticated()" class="waves-effect waves-light btn teal lighten-1">Log Out</a></li>
             </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>
     </div>
-</nav>
+</nav>-->
+
+<header>
+    <div class="navbar-fixed">
+        <nav class="indigo">
+            <div class="nav-wrapper container">
+                <a href="#!" class="brand-logo"><img src="app/src/img/giftjoy.png" style="width: 50px; height: 50px; margin-top: 8px;"></a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a [routerLink]="['']" class="white-text"><i class="material-icons left white-text">store</i>home</a></li>
+                    <li><a [routerLink]="['/profile']" class="white-text" *ngIf="auth.authenticated()"><i class="material-icons left white-text">perm_identity</i>profile</a></li>
+                    <li><a [routerLink]="['/product-upload']" class="white-text" *ngIf="auth.authenticated()"><i class="material-icons left white-text">redeem</i>upload a gift</a></li>
+                    <li><a (click)="auth.login()" *ngIf="!auth.authenticated()" class="waves-effect waves-light btn teal lighten-1"><i class="material-icons left">input</i>Log In</a></li>
+                    <li><a (click)="auth.logout()" *ngIf="auth.authenticated()" class="waves-effect waves-light btn teal lighten-1"><i class="material-icons left">open_in_new</i>Log Out</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <ul class="side-nav" id="mobile-demo">
+        <li><a [routerLink]="['']" class="white-text">Home</a></li>
+        <li><a [routerLink]="['/profile']" class="white-text" *ngIf="auth.authenticated()">Profile</a></li>
+        <li><a [routerLink]="['/product-upload']" class="white-text" *ngIf="auth.authenticated()">upload your gift</a></li>
+        <li><a (click)="auth.login()" *ngIf="!auth.authenticated()" class="waves-effect waves-light btn teal lighten-1">Log In</a></li>
+        <li><a (click)="auth.logout()" *ngIf="auth.authenticated()" class="waves-effect waves-light btn teal lighten-1">Log Out</a></li>
+    </ul>
+</header>

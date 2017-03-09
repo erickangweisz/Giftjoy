@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col s7">
+        <div class="col s12 m7">
             <div class="card">
                 <div class="card-image" style="height: 76%">
                     <div class="valign-wrapper">
@@ -9,14 +9,15 @@
                 </div>
             </div>
         </div>
-        <div class="col s5">
+        <div class="col s12 m5">
             <div class="card-panel teal">
                 <span class="white-text">
-                    <h3>{{ product?.title }}</h3>
-                    {{ product?.description }}
-                    <p><i class="material-icons">location_on</i> location: {{ product?.location }}</p>
-                    <p><i class="material-icons">turned_in_not</i> category: {{ product?.category }}</p>
-                    <p><i class="material-icons">phone</i> telephone: {{ product?.telephone }}</p>
+                    <h3 class="font_candal" style="font-size: 35px">{{ product?.title }}</h3>
+                    <br>
+                    <i>{{ product?.description }}</i>
+                    <p class="font_kanit"><i class="material-icons">location_on</i> location: {{ product?.location }}</p>
+                    <p class="font_kanit"><i class="material-icons">turned_in_not</i> category: {{ product?.category }}</p>
+                    <p class="font_kanit"><i class="material-icons">phone</i> telephone: {{ product?.telephone }}</p>
                 </span>
             </div>
             <a [routerLink]="['']" class=" waves-effect waves-light btn ">Back to</a>

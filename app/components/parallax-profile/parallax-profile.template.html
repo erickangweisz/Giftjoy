@@ -3,27 +3,32 @@
         <div class="container">
             <div class="row">
                 <div class="col s12 m12 l6">
-                    <h3 class="header">{{auth.userProfile.name}}</h3>
+                    <h3 class="header font_damion">{{auth.userProfile.name}}</h3>
                     <div class="card horizontal" style="border-radius: 10px;">
                         <div class="row">
                             <div class="col s4">
-                                <img [src]="auth.userProfile.picture" alt="" class="responsive-img circle" style="height: 120px; width: 120px; margin: 20px; position: relative; top: 18px;">
+                                <img [src]="auth.userProfile.picture" alt="" class="responsive-img circle" style="height: 150px; width: 230px; margin: 10px; position: relative; top: 13px; left: 14px; position: relative; left: 10%;">
                             </div>
                             <div class="col s8">
-                                <h5 class="grey-text grey-darken-4">{{auth.userProfile.nickname}}</h5>
-                                <p class="grey-text grey-darken-4 without_margin">{{auth.userProfile.email}}</p>
-                                <p class="grey-text text-darken-3 without_margin">created at: {{auth.userProfile.created_at}}</p>
-                                <p class="grey-text text-darken-3 without_margin">updated at: {{auth.userProfile.updated_at}}</p>
-                                <p class="grey-text text-darken-3 without_margin">address: {{auth.userProfile.user_metadata.address}}</p>
+                                <div style="position: relative; left: 10%">
+                                    <h5 class="grey-text grey-darken-4 font_candal">{{auth.userProfile.nickname}}</h5>
+                                    <p class="grey-text grey-darken-4 without_margin font_roboto">{{auth.userProfile.email}}</p>
+                                    <p class="grey-text text-darken-3 without_margin font_roboto"><strong>created at: </strong>{{auth.userProfile.created_at | date }}</p>
+                                    <p class="grey-text text-darken-3 without_margin"><strong>updated at:</strong> {{auth.userProfile.updated_at | date}}</p>
+                                    <p class="grey-text text-darken-3 without_margin"><strong>address:</strong> {{auth.userProfile.user_metadata.address }}</p>
+
+                                    <a [routerLink]="['/profile/edit']" class="btn-floating btn-large waves-effect waves-light red" style="position: absolute; top: 6px; left: 250px;"><i class="material-icons">edit</i></a>
+                                </div>
                                 <div class="row without_margin">
                                     <div class="col s12">
                                         <hr>
-                                        <a href="#"><i class="fa fa-facebook-square fa-2x margin_right" aria-hidden="true"></i></a>
-                                        <a href="#"><i class="fa fa-twitter-square fa-2x margin_right" aria-hidden="true"></i></a>
-                                        <a href="#"><i class="fa fa-envelope fa-2x red-text text-red darken-1" aria-hidden="true"></i></a>
+                                        <div style="margin-left: 20px;">
+                                            <a href="#"><i class="fa fa-facebook-square fa-2x margin_right" aria-hidden="true"></i></a>
+                                            <a href="#"><i class="fa fa-twitter-square fa-2x margin_right" aria-hidden="true"></i></a>
+                                            <a href="#"><i class="fa fa-envelope fa-2x red-text text-red darken-1" aria-hidden="true"></i></a>
+                                        </div>
                                     </div>
                                 </div>
-                                <a [routerLink]="['/profile/edit']" class="btn-floating btn-large waves-effect waves-light red" style="position: absolute; top: 6px; left: 450px;"><i class="material-icons">edit</i></a>
                             </div>
                         </div>
                     </div>

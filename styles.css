@@ -15,3 +15,33 @@ body {
     width: 80px;
     height: 80px;
 }
+
+.font_kanit {
+    font-family: 'Kanit', sans-serif;
+}
+
+.font_damion {
+    font-family: 'Damion', cursive;
+}
+
+.font_nothing {
+    font-family: 'Nothing You Could Do', cursive;
+}
+
+.font_roboto {
+    font-family: 'Roboto', sans-serif;
+}
+
+.font_candal {
+    font-family: 'Candal', sans-serif;
+}
+
+.loading {
+    width: 350px;
+    height: 350px;
+}
+
+.without_margin {
+    margin: 0px !important;
+    padding: 0px !important;
+}

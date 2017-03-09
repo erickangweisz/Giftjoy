@@ -22,6 +22,7 @@ import { ParallaxComponent }         from './components/parallax/parallax.compon
 import { ParallaxProfileComponent }  from './components/parallax-profile/parallax-profile.component';
 import { ProductProfileComponent }   from './components/product-profile/product-profile.component';
 import { UserProfileComponent }      from './components/user-profile/user-profile.component';
+import { ParallaxUserprofileComponent }       from './components/parallax-userprofile/parallax-userprofile.component';
 
 import { routing,
          appRoutingProviders } from './app.routes';
@@ -42,7 +43,8 @@ import { routing,
         ParallaxComponent,
         ParallaxProfileComponent,
         ProductProfileComponent,
-        UserProfileComponent
+        UserProfileComponent,
+        ParallaxUserprofileComponent
     ],
     providers:    [
         appRoutingProviders,

@@ -1,32 +1,21 @@
-<!--<nav class="navbar navbar-default indigo">
-    <div class="nav-wrapper container">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#"><img src="app/src/img/giftjoy.png" style="width: 50px; height: 50px; margin-top: 8px;"></a>
-            <ul class="right hide-on-med-and-down">
-                <li><a [routerLink]="['']" class="white-text"><i class="material-icons left white-text">store</i>home</a></li>
-                <li><a [routerLink]="['/profile']" class="white-text" *ngIf="auth.authenticated()"><i class="material-icons left white-text">perm_identity</i>profile</a></li>
-                <li><a [routerLink]="['/product-upload']" class="white-text" *ngIf="auth.authenticated()"><i class="material-icons left white-text">redeem</i>upload a gift</a></li>
-                <li><a (click)="auth.login()" *ngIf="!auth.authenticated()" class="waves-effect waves-light btn teal lighten-1"><i class="material-icons left">input</i>Log In</a></li>
-                <li><a (click)="auth.logout()" *ngIf="auth.authenticated()" class="waves-effect waves-light btn teal lighten-1"><i class="material-icons left">open_in_new</i>Log Out</a></li>
-            </ul>
-            <ul id="nav-mobile" class="side-nav">
-                <li><a [routerLink]="['']" class="white-text">Home</a></li>
-                <li><a [routerLink]="['/profile']" class="white-text" *ngIf="auth.authenticated()">Profile</a></li>
-                <li><a [routerLink]="['/product-upload']" class="white-text" *ngIf="auth.authenticated()">upload your gift</a></li>
-                <li><a (click)="auth.login()" *ngIf="!auth.authenticated()" class="waves-effect waves-light btn teal lighten-1">Log In</a></li>
-                <li><a (click)="auth.logout()" *ngIf="auth.authenticated()" class="waves-effect waves-light btn teal lighten-1">Log Out</a></li>
-            </ul>
-            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-        </div>
-    </div>
-</nav>-->
-
 <header>
     <div class="navbar-fixed">
         <nav class="indigo">
             <div class="nav-wrapper container">
                 <a href="#!" class="brand-logo"><img src="app/src/img/giftjoy.png" style="width: 50px; height: 50px; margin-top: 8px;"></a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <!-- Dropdown Trigger -->
+                <a class='dropdown-button btn-large indigo' href='#' data-activates='dropdown1' style="position: relative; top:6px; left: 60px;"><i class="material-icons left" style="position: relative; top: -5px; left: 5px;">dashboard</i></a>
+
+                <!-- Dropdown Structure -->
+                <ul id='dropdown1' class='dropdown-content'>
+                    <li><a [routerLink]="['/product-videogames/videogames']"><i class="material-icons">videogame_asset</i> videogames</a></li>
+                    <li><a [routerLink]="['/product-electronics/electronics']"><i class="material-icons">phone_android</i> electronics</a></li>
+                    <li><a [routerLink]="['/product-furniture/furniture']"><i class="material-icons">weekend</i> furniture</a></li>
+                    <li><a [routerLink]="['/product-sports/sports']"><i class="material-icons">directions_bike</i> sports</a></li>
+                    <li><a [routerLink]="['/product-clothes/clothes']"><i class="material-icons">business_center</i> clothes</a></li>
+                </ul>
+
                 <ul class="right hide-on-med-and-down">
                     <li><a [routerLink]="['']" class="white-text"><i class="material-icons left white-text">store</i>home</a></li>
                     <li><a [routerLink]="['/profile']" class="white-text" *ngIf="auth.authenticated()"><i class="material-icons left white-text">perm_identity</i>profile</a></li>

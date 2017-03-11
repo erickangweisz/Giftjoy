@@ -26,6 +26,12 @@ export class ProductService {
                             .map(res => res.json());
     }
 
+    getProductByCategory(category: string) {
+        this._http.head("*");
+        return this._http.get('http://localhost/restful/giftjoy-api.php/productsbycategory/' + category)
+                            .map(res => res.json());
+    }
+
     addProduct(product: Product) {
         let json = JSON.stringify(product);
         let params = "json=" + json;

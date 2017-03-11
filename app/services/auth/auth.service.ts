@@ -30,6 +30,7 @@ export class Auth {
   //Store profile object in auth class
   userProfile: any;
   userid: string;
+  category: string;
 
   constructor() {
     // Set userProfile attribute if already saved profile
@@ -51,7 +52,7 @@ export class Auth {
         localStorage.setItem('profile', JSON.stringify(profile));
         this.userProfile = profile;
         console.log('this.userProfile.user_id -> ' + this.userProfile.identities[0].user_id);
-        this.userid = this.userProfile.identities[0].user_id;
+        //this.userid = this.userProfile.identities[0].user_id;
         localStorage.setItem('user_id', this.userProfile.identities[0].user_id);
       });
     });

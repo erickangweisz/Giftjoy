@@ -25,6 +25,17 @@ $app->get("/productsbyclientid/:client_id", function($client_id) use($db, $app) 
 	echo json_encode($result);
 });
 
+$app->get("/productsbycategory/:category", function($category) use($db, $app) {
+	$query = $db->query("SELECT * FROM products WHERE category = $category");
+	$products = array();
+	while ($fila = $query->fetch_assoc()) {
+		$products[] = $fila;
+	}
+	$result = array("status" => "success",
+		"data" => $products);
+	echo json_encode($result);
+});
+
 $app->get("/products/:id", function($id) use($db, $app) {
 	$query = $db->query("SELECT * FROM products WHERE id = $id;");
 	$products = $query->fetch_assoc();

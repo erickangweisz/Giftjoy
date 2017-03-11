@@ -37,6 +37,8 @@ export class ProductEditComponent implements OnInit {
                     this.status = response.status;
                     if (status !== "success") {
                         //alert ("server ERROR");
+                    } else {
+                        this.router.navigate(['']);
                     }
                 },
                 error => {
@@ -47,7 +49,7 @@ export class ProductEditComponent implements OnInit {
                     }
                 }
             );
-            this.router.navigate(['']);
+            
             this.router.navigate(['']);
     }
 

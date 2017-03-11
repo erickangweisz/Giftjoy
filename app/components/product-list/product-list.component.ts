@@ -29,11 +29,12 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit() { 
        this.getProducts(); 
+       this.router.navigate[''];
   }
 
   getClientID() {
       //console.log('getClientID() --> ' + this.auth.getuserid());
-      return this.auth.getuserid();
+      return localStorage.getItem('user_id');
   }
 
   getUserID() {

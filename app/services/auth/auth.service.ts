@@ -52,6 +52,7 @@ export class Auth {
         this.userProfile = profile;
         console.log('this.userProfile.user_id -> ' + this.userProfile.identities[0].user_id);
         this.userid = this.userProfile.identities[0].user_id;
+        localStorage.setItem('user_id', this.userProfile.identities[0].user_id);
       });
     });
   };

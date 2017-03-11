@@ -27,7 +27,7 @@ export class ProductProfileComponent implements OnInit {
     }
 
     getClientID() {
-        return this.auth.getuserid();
+        return this.auth.userProfile.identities[0].user_id;
     }
 
     getProductByUserId() {

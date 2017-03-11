@@ -23,14 +23,22 @@ export class ProductListComponent implements OnInit {
 
   constructor(private _productService: ProductService,
               private auth: Auth,
-              private router: Router) {}
+              private router: Router) {
+                  //console.log('auth en product-list -> ' + this.auth.userProfile.identities[0].user_id);
+              }
 
   ngOnInit() { 
        this.getProducts(); 
   }
 
   getClientID() {
+      //console.log('getClientID() --> ' + this.auth.getuserid());
       return this.auth.getuserid();
+  }
+
+  getUserID() {
+      //console.log('getUserID() --> ' + this.auth.userProfile.identities[0].user_id);
+      return this.auth.userProfile.identities[0].user_id;
   }
 
   getProducts() {

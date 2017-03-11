@@ -29,6 +29,10 @@ export class ProductSportsComponent implements OnInit {
         this.getProductBySports();
     }
 
+    getClientID() {
+        return localStorage.getItem('user_id');
+    }
+
     getProductBySports() {
       this._productService.getProductByCategory('"sports"')
                             .subscribe(

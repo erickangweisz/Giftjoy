@@ -29,6 +29,10 @@ export class ProductVideogamesComponent implements OnInit {
         this.getProductByVideogames();
     }
 
+    getClientID() {
+        return localStorage.getItem('user_id');
+    }
+
     getProductByVideogames() {
       this._productService.getProductByCategory('"videogames"')
                             .subscribe(

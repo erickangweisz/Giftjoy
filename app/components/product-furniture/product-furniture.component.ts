@@ -29,6 +29,10 @@ export class ProductFurnitureComponent implements OnInit {
         this.getProductByFurniture();
     }
 
+    getClientID() {
+        return localStorage.getItem('user_id');
+    }
+
     getProductByFurniture() {
       this._productService.getProductByCategory('"furniture"')
                             .subscribe(

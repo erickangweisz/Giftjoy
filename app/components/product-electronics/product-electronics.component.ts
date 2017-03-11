@@ -29,6 +29,10 @@ export class ProductElectronicsComponent implements OnInit {
         this.getProductByElectronics();
     }
 
+    getClientID() {
+        return localStorage.getItem('user_id');
+    }
+
     getProductByElectronics() {
       this._productService.getProductByCategory('"electronics"')
                             .subscribe(

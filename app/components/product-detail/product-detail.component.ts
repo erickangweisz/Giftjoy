@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../services/product/product.service';
 import { Product } from '../../model/Product';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Auth } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'product-detail',
@@ -19,7 +20,8 @@ export class ProductDetailComponent implements OnInit {
     public constructor(
         private activatedRoute: ActivatedRoute,
         private router: Router,
-        private productService: ProductService
+        private productService: ProductService,
+        private auth: Auth
     ) {}
 
     ngOnInit() {

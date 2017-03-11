@@ -17,7 +17,7 @@
                     <i>{{ product?.description }}</i>
                     <p class="font_kanit"><i class="material-icons">location_on</i> location: {{ product?.location }}</p>
                     <p class="font_kanit"><i class="material-icons">turned_in_not</i> category: {{ product?.category }}</p>
-                    <p class="font_kanit"><i class="material-icons">phone</i> telephone: {{ product?.telephone }}</p>
+                    <p *ngIf="auth.authenticated()" class="font_kanit"><i class="material-icons">phone</i> telephone: {{ product?.telephone }}</p>
                 </span>
             </div>
             <a [routerLink]="['']" class=" waves-effect waves-light btn ">Back to</a>

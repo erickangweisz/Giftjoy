@@ -4,6 +4,7 @@ import { FormsModule }                  from '@angular/forms';
 import { HttpModule, JsonpModule }      from '@angular/http';
 
 import { AUTH_PROVIDERS }               from 'angular2-jwt';
+import { Auth }                         from './services/auth/auth.service';
 
 import { AppComponent }                 from './app.component';
 import { HomeComponent }                from './components/home/home.component';
@@ -58,7 +59,8 @@ import { routing,
     ],
     providers:    [
         appRoutingProviders,
-        AUTH_PROVIDERS
+        AUTH_PROVIDERS,
+        Auth
     ],
     imports:      [
         BrowserModule,

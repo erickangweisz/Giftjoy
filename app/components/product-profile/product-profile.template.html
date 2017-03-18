@@ -14,7 +14,7 @@
             <hr>
             <a [routerLink]="['/product', product.id]">view</a>
             <a *ngIf="auth.authenticated() && product.client_id === getClientID()" [routerLink]="['/product-edit', product.id]">edit</a>
-            <a *ngIf="auth.authenticated() && product.client_id === getClientID()" (click)="onDeleteConfirm(product.id)" style="cursor: pointer">delete</a>
+            <a *ngIf="auth.authenticated() && product.client_id === getClientID()" (click)="onDeleteProduct(product.id)" style="cursor: pointer">deletah</a>
 
             <div class="confirmDelete" *ngIf="confirm === product.id">
                 <a (click)="onDeleteProduct(product.id)" style="cursor: pointer">delete</a>

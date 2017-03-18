@@ -6,7 +6,7 @@
                 <span><a [routerLink]="['/product', product.id]" class="font_candal indigo-text"><strong>{{ product.title | uppercase }}</strong></a></span>
                 <!--<p class="font_kanit">{{ product.description }}</p>-->
                 <br><br>
-                <div class="row without_margin">
+                <div *ngIf="auth.authenticated()" class="row without_margin">
                     <div class="col m12">
                         <img [routerLink]="['/user-profile', product.client_id]" src="http://lorempixel.com/80/80/people/{{product.id}}" class="responsive-img circle" style="width: 50px; height: 50px;">
                         <p class="without_margin"><a [routerLink]="['/user-profile', product.client_id]" class="font_kanit without_margin">{{ product.nickname }}</a></p>

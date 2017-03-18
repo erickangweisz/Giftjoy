@@ -46,7 +46,7 @@ export class ProductFurnitureComponent implements OnInit {
                                     } else {
                                         $(document).ready(function() {
                                             $('#blog-landing').pinterest_grid({
-                                                no_columns: 4,
+                                                no_columns: 5,
                                                 padding_x: 10,
                                                 padding_y: 10,
                                                 margin_bottom: 50,

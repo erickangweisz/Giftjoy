@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../services/product/product.service';
 import { Product } from '../../model/Product';
+
 import { Auth } from '../../services/auth/auth.service';
+import { Router } from '@angular/router';
 
 declare var $:any;
 
@@ -20,10 +22,12 @@ export class ProductProfileComponent implements OnInit {
     public confirm;
 
     constructor(private _productService: ProductService,
-                private auth: Auth) {}
+                private auth: Auth,
+                private router: Router) {}
 
     ngOnInit() { 
         this.getProductByUserId();
+        //this.router.navigate[''];
     }
 
     getClientID() {
@@ -43,7 +47,7 @@ export class ProductProfileComponent implements OnInit {
                                     } else {
                                         $(document).ready(function() {
                                             $('#blog-landing').pinterest_grid({
-                                                no_columns: 4,
+                                                no_columns: 5,
                                                 padding_x: 10,
                                                 padding_y: 10,
                                                 margin_bottom: 50,
@@ -59,6 +63,44 @@ export class ProductProfileComponent implements OnInit {
                                         alert("request error");
                                     }
                                 });
+    }
+
+    onDeleteConfirm(id: string) {
+        this.confirm = id;
+        $(document).ready(function() {
+            $('#blog-landing').pinterest_grid({
+                no_columns: 5,
+                padding_x: 10,
+                padding_y: 10,
+                margin_bottom: 50,
+                single_column_breakpoint: 700
+            });
+        });
+        this.router.navigate(['']);
+        this.router.navigate(['']);
+    }
+
+    onCancelConfirm(id: string) {
+        this.confirm = null;
+    }
+
+    onDeleteProduct(id: string) {
+        this._productService.deleteProduct(id)
+                    .subscribe(
+                        result => {
+                            this.status = result.status;
+                            if (this.status !== "success") {
+                                alert("server error");
+                            }
+                            this.getProductByUserId();
+                        }, 
+                        error => {
+                            this.errorMessage = <any>error;
+                            if (this.errorMessage !== null) {
+                                console.log(this.errorMessage);
+                                alert("request error");
+                            }
+                        });
     }
 
 }

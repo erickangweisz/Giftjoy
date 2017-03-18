@@ -1,4 +1,4 @@
-import { Component }            from '@angular/core';
+import { Component, OnInit }            from '@angular/core';
 import { Http } from '@angular/http';
 import { Auth }                 from '../../services/auth/auth.service';
 import { AuthHttp }             from 'angular2-jwt';
@@ -18,6 +18,32 @@ export class ProfileEdit {
       this.address = auth.userProfile.user_metadata.address;
     }
   }
+
+  ngOnInit() {
+    //this.getUserList();
+  }
+
+  /*getUserList() {
+    var headers: any = {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      "typ": "JWT",
+      "alg": "RS256",
+      "kid": "NDJEOTlEREMzRUE3MkNGRUFCMThFMEU5NENDMjlCN0NCRUJBN0VCNQ",
+      'Access-Control-Allow-Origin':'http://localhost:3000',
+      'Access-Control-Allow-Methods': 'POST,GET,PUT,DELETE'
+    };
+
+    this.authHttp
+      .get('https://' + myConfig.domain + '/api/v2/users', {headers: headers})
+      .map(response => response.json())
+      .subscribe(
+        response => {
+          console.log('USERLIST! -> ' + response)
+        },
+        error => alert(error.json().message)
+      );
+  }*/
 
   onSubmit() {
     var headers: any = {

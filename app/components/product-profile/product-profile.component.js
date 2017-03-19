@@ -10,20 +10,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var product_service_1 = require('../../services/product/product.service');
+var users_service_1 = require('../../services/users/users.service');
 var auth_service_1 = require('../../services/auth/auth.service');
 var router_1 = require('@angular/router');
 var ProductProfileComponent = (function () {
-    function ProductProfileComponent(_productService, auth, router) {
+    function ProductProfileComponent(_productService, _usersService, auth, router) {
         this._productService = _productService;
+        this._usersService = _usersService;
         this.auth = auth;
         this.router = router;
     }
     ProductProfileComponent.prototype.ngOnInit = function () {
         this.getProductByUserId();
+        this.getUsersList();
         //this.router.navigate[''];
     };
     ProductProfileComponent.prototype.getClientID = function () {
         return this.auth.userProfile.identities[0].user_id;
+    };
+    ProductProfileComponent.prototype.getUsersList = function () {
+        this._usersService.getUserList();
+        console.log('Se ha llamado a getUserList()');
     };
     ProductProfileComponent.prototype.getProductByUserId = function () {
         var _this = this;
@@ -93,9 +100,9 @@ var ProductProfileComponent = (function () {
             selector: 'product-profile',
             templateUrl: './app/components/product-profile/product-profile.template.html',
             styleUrls: ['./app/components/product-profile/product-profile.component.css'],
-            providers: [product_service_1.ProductService]
+            providers: [product_service_1.ProductService, users_service_1.UsersService]
         }), 
-        __metadata('design:paramtypes', [product_service_1.ProductService, auth_service_1.Auth, router_1.Router])
+        __metadata('design:paramtypes', [product_service_1.ProductService, users_service_1.UsersService, auth_service_1.Auth, router_1.Router])
     ], ProductProfileComponent);
     return ProductProfileComponent;
 }());

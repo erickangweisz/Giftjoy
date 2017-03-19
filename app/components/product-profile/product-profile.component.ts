@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../services/product/product.service';
+
+import { UsersService } from '../../services/users/users.service';
+
 import { Product } from '../../model/Product';
 
 import { Auth } from '../../services/auth/auth.service';
@@ -11,27 +14,35 @@ declare var $:any;
   selector: 'product-profile',
   templateUrl: './app/components/product-profile/product-profile.template.html',
   styleUrls: ['./app/components/product-profile/product-profile.component.css'],
-  providers: [ ProductService ]
+  providers: [ ProductService, UsersService ]
 })
 
 export class ProductProfileComponent implements OnInit {
 
     public products: Product[];
+
     public status:string;
     public errorMessage:any;
     public confirm;
 
     constructor(private _productService: ProductService,
+                private _usersService: UsersService,
                 private auth: Auth,
                 private router: Router) {}
 
     ngOnInit() { 
         this.getProductByUserId();
+        this.getUsersList();
         //this.router.navigate[''];
     }
 
     getClientID() {
         return this.auth.userProfile.identities[0].user_id;
+    }
+
+    getUsersList() {
+        this._usersService.getUserList();
+        console.log('Se ha llamado a getUserList()');
     }
 
     getProductByUserId() {

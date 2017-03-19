@@ -7,7 +7,7 @@ link-checker-results.txt
 *.js.map
 _test-output
 _temp
-
+*.component.js
 !**/*e2e-spec.js
 !karma*.js
 !protractor*.js

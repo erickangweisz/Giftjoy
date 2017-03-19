@@ -23,27 +23,30 @@ export class ProfileEdit {
     //this.getUserList();
   }
 
-  /*getUserList() {
-    var headers: any = {
+  getUserList() {
+    /*var headers: any = {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      "typ": "JWT",
-      "alg": "RS256",
-      "kid": "NDJEOTlEREMzRUE3MkNGRUFCMThFMEU5NENDMjlCN0NCRUJBN0VCNQ",
-      'Access-Control-Allow-Origin':'http://localhost:3000',
-      'Access-Control-Allow-Methods': 'POST,GET,PUT,DELETE'
-    };
+      //"typ": "JWT",
+      //"alg": "RS256",
+      //"kid": "NDJEOTlEREMzRUE3MkNGRUFCMThFMEU5NENDMjlCN0NCRUJBN0VCNQ",
+      //'Access-Control-Allow-Origin':'http://localhost:3000',
+      //'Access-Control-Allow-Methods': 'POST,GET,PUT,DELETE'
+    }
+
+    //let headers = new Headers();
+    //headers.append('Authorization', 'Bearer ' + localStorage.getItem('id_token'));
 
     this.authHttp
-      .get('https://' + myConfig.domain + '/api/v2/users', {headers: headers})
+      .get('https://' + myConfig.domain + '/api/v2/users', headers)
       .map(response => response.json())
       .subscribe(
         response => {
           console.log('USERLIST! -> ' + response)
         },
         error => alert(error.json().message)
-      );
-  }*/
+      );*/
+  }
 
   onSubmit() {
     var headers: any = {

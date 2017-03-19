@@ -16,22 +16,22 @@ var ProductService = (function () {
         this._http = _http;
     }
     ProductService.prototype.getProducts = function () {
-        this._http.head("*");
+        this._http.head("http://localhost:3000");
         return this._http.get('http://localhost/restful/giftjoy-api.php/products')
             .map(function (res) { return res.json(); });
     };
     ProductService.prototype.getProduct = function (id) {
-        this._http.head("*");
+        this._http.head("http://localhost:3000");
         return this._http.get('http://localhost/restful/giftjoy-api.php/products/' + id)
             .map(function (res) { return res.json(); });
     };
     ProductService.prototype.getProductByUserId = function (user_id) {
-        this._http.head("*");
+        this._http.head("http://localhost:3000");
         return this._http.get('http://localhost/restful/giftjoy-api.php/productsbyclientid/' + user_id)
             .map(function (res) { return res.json(); });
     };
     ProductService.prototype.getProductByCategory = function (category) {
-        this._http.head("*");
+        this._http.head("http://localhost:3000");
         return this._http.get('http://localhost/restful/giftjoy-api.php/productsbycategory/' + category)
             .map(function (res) { return res.json(); });
     };
@@ -50,7 +50,7 @@ var ProductService = (function () {
             .map(function (res) { return res.json(); });
     };
     ProductService.prototype.deleteProduct = function (id) {
-        this._http.head("*");
+        this._http.head("http://localhost:3000");
         return this._http.get('http://localhost/restful/giftjoy-api.php/delete-product/' + id)
             .map(function (res) { return res.json(); });
     };

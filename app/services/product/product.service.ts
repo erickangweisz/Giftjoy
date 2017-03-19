@@ -9,25 +9,25 @@ export class ProductService {
     constructor(private _http: Http) {}
 
     getProducts() {
-        this._http.head("*");
+        this._http.head("http://localhost:3000");
         return this._http.get('http://localhost/restful/giftjoy-api.php/products')
                             .map(res => res.json());
     }
 
     getProduct(id: string) {
-        this._http.head("*");
+        this._http.head("http://localhost:3000");
         return this._http.get('http://localhost/restful/giftjoy-api.php/products/' + id)
                             .map(res => res.json());
     }
 
     getProductByUserId(user_id: string) {
-        this._http.head("*");
+        this._http.head("http://localhost:3000");
         return this._http.get('http://localhost/restful/giftjoy-api.php/productsbyclientid/' + user_id)
                             .map(res => res.json());
     }
 
     getProductByCategory(category: string) {
-        this._http.head("*");
+        this._http.head("http://localhost:3000");
         return this._http.get('http://localhost/restful/giftjoy-api.php/productsbycategory/' + category)
                             .map(res => res.json());
     }
@@ -51,7 +51,7 @@ export class ProductService {
     }
 
     deleteProduct(id: string) {
-        this._http.head("*");
+        this._http.head("http://localhost:3000");
         return this._http.get('http://localhost/restful/giftjoy-api.php/delete-product/' + id)
                             .map(res => res.json());
     }

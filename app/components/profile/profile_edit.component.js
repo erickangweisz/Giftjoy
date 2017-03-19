@@ -26,27 +26,30 @@ var ProfileEdit = (function () {
     ProfileEdit.prototype.ngOnInit = function () {
         //this.getUserList();
     };
-    /*getUserList() {
-      var headers: any = {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        "typ": "JWT",
-        "alg": "RS256",
-        "kid": "NDJEOTlEREMzRUE3MkNGRUFCMThFMEU5NENDMjlCN0NCRUJBN0VCNQ",
-        'Access-Control-Allow-Origin':'http://localhost:3000',
-        'Access-Control-Allow-Methods': 'POST,GET,PUT,DELETE'
-      };
-  
-      this.authHttp
-        .get('https://' + myConfig.domain + '/api/v2/users', {headers: headers})
-        .map(response => response.json())
-        .subscribe(
-          response => {
-            console.log('USERLIST! -> ' + response)
-          },
-          error => alert(error.json().message)
-        );
-    }*/
+    ProfileEdit.prototype.getUserList = function () {
+        /*var headers: any = {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          //"typ": "JWT",
+          //"alg": "RS256",
+          //"kid": "NDJEOTlEREMzRUE3MkNGRUFCMThFMEU5NENDMjlCN0NCRUJBN0VCNQ",
+          //'Access-Control-Allow-Origin':'http://localhost:3000',
+          //'Access-Control-Allow-Methods': 'POST,GET,PUT,DELETE'
+        }
+    
+        //let headers = new Headers();
+        //headers.append('Authorization', 'Bearer ' + localStorage.getItem('id_token'));
+    
+        this.authHttp
+          .get('https://' + myConfig.domain + '/api/v2/users', headers)
+          .map(response => response.json())
+          .subscribe(
+            response => {
+              console.log('USERLIST! -> ' + response)
+            },
+            error => alert(error.json().message)
+          );*/
+    };
     ProfileEdit.prototype.onSubmit = function () {
         var _this = this;
         var headers = {

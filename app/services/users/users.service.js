@@ -13,22 +13,25 @@ var http_1 = require('@angular/http');
 require('rxjs/add/operator/map');
 var angular2_jwt_1 = require('angular2-jwt');
 var auth_config_1 = require('../../services/auth/auth.config');
+var auth_service_1 = require('../../services/auth/auth.service');
 var UsersService = (function () {
-    function UsersService(_http, authHttp) {
+    function UsersService(_http, authHttp, auth) {
         this._http = _http;
         this.authHttp = authHttp;
+        this.auth = auth;
     }
     UsersService.prototype.getUserList = function () {
         var _this = this;
         var headers = new http_1.Headers();
         headers.append('Access-Control-Allow-Origin', 'http://localhost:3000');
-        headers.append('Authorization', 'Bearer ' + localStorage.getItem('id_token'));
+        // console.log('dentro de users.service::access_token -> ' + localStorage.getItem('access_token'))
+        headers.append('Authorization', 'Bearer ' + localStorage.getItem('access_token'));
         this.authHttp.get('https://' + auth_config_1.myConfig.domain + '/api/v2/users', headers)
             .subscribe(function (data) { return _this.userList = data; }, function (err) { return console.log(err); }, function () { return console.log('Request Complete'); });
     };
     UsersService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [http_1.Http, angular2_jwt_1.AuthHttp])
+        __metadata('design:paramtypes', [http_1.Http, angular2_jwt_1.AuthHttp, auth_service_1.Auth])
     ], UsersService);
     return UsersService;
 }());

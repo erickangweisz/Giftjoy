@@ -1,10 +1,10 @@
 import { Component, OnInit }            from '@angular/core';
-import { Http } from '@angular/http';
-import { Auth }                 from '../../services/auth/auth.service';
-import { AuthHttp }             from 'angular2-jwt';
-import { Router }               from '@angular/router';
+import { Http, Headers }                from '@angular/http';
+import { Auth }                         from '../../services/auth/auth.service';
+import { AuthHttp }                     from 'angular2-jwt';
+import { Router }                       from '@angular/router';
 import 'rxjs/add/operator/map';
-import { myConfig }             from '../../services/auth/auth.config';
+import { myConfig }                     from '../../services/auth/auth.config';
 
 @Component({
   selector: 'profile',
@@ -20,7 +20,7 @@ export class ProfileEdit {
   }
 
   ngOnInit() {
-    //this.getUserList();
+    // this.getUserList();
   }
 
   getUserList() {
@@ -32,10 +32,11 @@ export class ProfileEdit {
       //"kid": "NDJEOTlEREMzRUE3MkNGRUFCMThFMEU5NENDMjlCN0NCRUJBN0VCNQ",
       //'Access-Control-Allow-Origin':'http://localhost:3000',
       //'Access-Control-Allow-Methods': 'POST,GET,PUT,DELETE'
-    }
+    }*/
 
-    //let headers = new Headers();
-    //headers.append('Authorization', 'Bearer ' + localStorage.getItem('id_token'));
+    /*let headers = new Headers();
+    headers.append('Access-Control-Allow-Origin', 'http://localhost:3000');
+    headers.append('Authorization', 'Bearer ' + localStorage.getItem('access_token'));
 
     this.authHttp
       .get('https://' + myConfig.domain + '/api/v2/users', headers)

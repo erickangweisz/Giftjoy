@@ -6,6 +6,7 @@ import { Product }                  from '../../model/Product';
 
 import { AuthHttp }                 from 'angular2-jwt';
 import { myConfig }                 from '../../services/auth/auth.config';
+import { Auth }                     from '../../services/auth/auth.service';
 
 
 @Injectable()
@@ -14,13 +15,14 @@ export class UsersService {
     userList: any;
 
     constructor(private _http: Http,
-                public authHttp: AuthHttp) {}
+                public authHttp: AuthHttp,
+                public auth: Auth) {}
 
     getUserList() {
-
     let headers = new Headers();
     headers.append('Access-Control-Allow-Origin','http://localhost:3000');
-    headers.append('Authorization','Bearer ' + localStorage.getItem('id_token'));
+    // console.log('dentro de users.service::access_token -> ' + localStorage.getItem('access_token'))
+    headers.append('Authorization', 'Bearer ' + localStorage.getItem('access_token'));
     
     this.authHttp.get('https://' + myConfig.domain + '/api/v2/users', headers)
       .subscribe(

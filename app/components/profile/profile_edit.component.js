@@ -24,7 +24,7 @@ var ProfileEdit = (function () {
         }
     }
     ProfileEdit.prototype.ngOnInit = function () {
-        //this.getUserList();
+        // this.getUserList();
     };
     ProfileEdit.prototype.getUserList = function () {
         /*var headers: any = {
@@ -35,10 +35,10 @@ var ProfileEdit = (function () {
           //"kid": "NDJEOTlEREMzRUE3MkNGRUFCMThFMEU5NENDMjlCN0NCRUJBN0VCNQ",
           //'Access-Control-Allow-Origin':'http://localhost:3000',
           //'Access-Control-Allow-Methods': 'POST,GET,PUT,DELETE'
-        }
-    
-        //let headers = new Headers();
-        //headers.append('Authorization', 'Bearer ' + localStorage.getItem('id_token'));
+        }*/
+        /*let headers = new Headers();
+        headers.append('Access-Control-Allow-Origin', 'http://localhost:3000');
+        headers.append('Authorization', 'Bearer ' + localStorage.getItem('access_token'));
     
         this.authHttp
           .get('https://' + myConfig.domain + '/api/v2/users', headers)

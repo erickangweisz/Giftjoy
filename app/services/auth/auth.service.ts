@@ -2,8 +2,11 @@ import { Injectable }      from '@angular/core';
 import { tokenNotExpired } from 'angular2-jwt';
 import { myConfig }        from './auth.config';
 
+import { Http, Headers }   from '@angular/http';
+
 // Avoid name not found warnings
 declare var Auth0Lock: any;
+declare var $:any;
 
 @Injectable()
 export class Auth {
@@ -32,7 +35,9 @@ export class Auth {
   userid: string;
   category: string;
 
-  constructor() {
+  accessToken: string;
+
+  constructor(public _http: Http) {
     // Set userProfile attribute if already saved profile
     this.userProfile = JSON.parse(localStorage.getItem('profile'));
 
@@ -51,15 +56,12 @@ export class Auth {
         profile.user_metadata = profile.user_metadata || {};
         localStorage.setItem('profile', JSON.stringify(profile));
         this.userProfile = profile;
-        console.log('this.userProfile.user_id -> ' + this.userProfile.identities[0].user_id);
-        //this.userid = this.userProfile.identities[0].user_id;
         localStorage.setItem('user_id', this.userProfile.identities[0].user_id);
       });
     });
   };
 
   public getuserid() {
-    //console.log('this.userid --> ' + this.userid);
     return this.userid;
   }
 
@@ -80,4 +82,24 @@ export class Auth {
     localStorage.removeItem('profile');
     this.userProfile = undefined;
   };
+
+  public getAccessToken() {
+    var settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": "https://erikweisz.auth0.com/oauth/token",
+      "method": "POST",
+      "headers": {
+        "content-type": "application/json"
+      },
+      "data": "{\"client_id\":\"IenZah8aIuoBeGPXqMCZBfQ2OOgCZTbA\",\"client_secret\":\"QrJ04zEEr4SrhRfBzG7cNxTCfRaXFXbx-EMJgt4uV5x8WEiwi38nGv4RRj6WygxW\",\"audience\":\"https://erikweisz.auth0.com/api/v2/\",\"grant_type\":\"client_credentials\"}"
+    }
+
+    $.ajax(settings).done(function (response) {
+      this.accessToken = response;
+      console.log('access_token -> ' + this.accessToken.access_token);
+      localStorage.setItem('access_token', this.accessToken.access_token);
+    });
+  }
+
 }

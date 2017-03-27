@@ -11,9 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var angular2_jwt_1 = require('angular2-jwt');
 var auth_config_1 = require('./auth.config');
+var http_1 = require('@angular/http');
 var Auth = (function () {
-    function Auth() {
+    function Auth(_http) {
         var _this = this;
+        this._http = _http;
         // Configure Auth0
         this.lock = new Auth0Lock(auth_config_1.myConfig.clientID, auth_config_1.myConfig.domain, {
             additionalSignUpFields: [{
@@ -48,15 +50,12 @@ var Auth = (function () {
                 profile.user_metadata = profile.user_metadata || {};
                 localStorage.setItem('profile', JSON.stringify(profile));
                 _this.userProfile = profile;
-                console.log('this.userProfile.user_id -> ' + _this.userProfile.identities[0].user_id);
-                //this.userid = this.userProfile.identities[0].user_id;
                 localStorage.setItem('user_id', _this.userProfile.identities[0].user_id);
             });
         });
     }
     ;
     Auth.prototype.getuserid = function () {
-        //console.log('this.userid --> ' + this.userid);
         return this.userid;
     };
     Auth.prototype.login = function () {
@@ -77,9 +76,26 @@ var Auth = (function () {
         this.userProfile = undefined;
     };
     ;
+    Auth.prototype.getAccessToken = function () {
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://erikweisz.auth0.com/oauth/token",
+            "method": "POST",
+            "headers": {
+                "content-type": "application/json"
+            },
+            "data": "{\"client_id\":\"IenZah8aIuoBeGPXqMCZBfQ2OOgCZTbA\",\"client_secret\":\"QrJ04zEEr4SrhRfBzG7cNxTCfRaXFXbx-EMJgt4uV5x8WEiwi38nGv4RRj6WygxW\",\"audience\":\"https://erikweisz.auth0.com/api/v2/\",\"grant_type\":\"client_credentials\"}"
+        };
+        $.ajax(settings).done(function (response) {
+            this.accessToken = response;
+            console.log('access_token -> ' + this.accessToken.access_token);
+            localStorage.setItem('access_token', this.accessToken.access_token);
+        });
+    };
     Auth = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [http_1.Http])
     ], Auth);
     return Auth;
 }());

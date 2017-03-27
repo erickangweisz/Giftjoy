@@ -13,6 +13,7 @@ var auth_service_1 = require('./services/auth/auth.service');
 var AppComponent = (function () {
     function AppComponent(auth) {
         this.auth = auth;
+        auth.getAccessToken();
     }
     AppComponent = __decorate([
         core_1.Component({
